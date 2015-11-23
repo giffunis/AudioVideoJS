@@ -1,4 +1,4 @@
-# Sistemas y Tecnologías Web: Audio y Video en JS
+Sistemas y Tecnologías Web: Audio y Video en JS
 
 ===================
 Presentación para la asignatura de Sistemas y Tecnologías Web en la que implementaremos funcionalidades de audio y video usando HTML y JavaScript.
