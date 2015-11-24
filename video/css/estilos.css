@@ -1,0 +1,11 @@
+#controles {
+  background: #333;
+  padding: 2%;
+  color: #ccc;
+}
+
+#contenedor{
+  width: 550px;
+  background: #000;
+  margin: 0px auto;
+}
