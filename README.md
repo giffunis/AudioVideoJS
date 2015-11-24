@@ -63,8 +63,159 @@ En esta creamos una variable vid que represanta al vídeo que se ha cargado en l
 * play() y pause() son funciones por defecto de javascript que inician y detienen el video.
 * vid.paused devuelve true si el video está pausado y false si no lo está. También es una función por defecto de javascript.
 
+-------------------------------------------------------------------
+
+Lo que haremos a continución será estructurar mejor el código para que este sea mas legible y entendible.
+
+Para empezar inicializaremos tres de las variables que nos harán falta en nuestro fichero javascript
+
+```
+var vid, btn, navbar;
+
+```
+Lo siguiente será añadir esta línea debajo
+
+```
+var vid, btn, navbar;
+
+window.onload = intialize;
+
+```
+Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML con su id antes de que estos se hayan cargado.
+
+Después crearemos la función initialize que usaremos para referenciar nuestras variables creadas anteriormente a los id's de nuestro HTML
+
+```
+var vid, btn, navbar;
+
+function intialize(){
+	
+	//Referenciando las variables
+	
+	vid = document.getElementById("mi_video");
+	btn = document.getElementById("btnplaypause");
+	navbar = document.getElementById("navbar");
+}
+
+window.onload = intialize;
+
+```
+Gracias a esto ya no necesitamos pasarle parámetros a nuestra función playPause() por lo que podemos quitárselos. Así mismo podemos quitar la referencia de vid porque ya la tenemos en el initialize.
+
+El código entero del javascript quedaría de la siguiente forma:
 
 
+```
+var vid, btn, navbar;
+
+function intialize(){
+	
+	//Referenciando las variables
+	
+	vid = document.getElementById("mi_video");
+	btn = document.getElementById("btnplaypause");
+	navbar = document.getElementById("navbar");
+}
+
+window.onload = intialize;
+
+function playPause(){
+	if(vid.paused){
+		vid.play();
+		btn.innerHTML = "Pause";
+	} else {
+		vid.pause();
+		btn.innerHTML = "Play";
+	}
+}
+
+```
+A su vez, en el HTML, cuando llamamos a la función playPause(), también debemos quitarle los parámetros, quedando de la siguiente manera:
+
+```
+<button id="btnplaypause" onclick="playPause()">Play</button>
+
+```
+
+A continuación reemplazaremos nuestro evento onclick mediante un listener que definiremos en nuestra función initialize
+
+```
+function intialize(){
+	
+	//Referenciando las variables
+	
+	vid = document.getElementById("mi_video");
+	btn = document.getElementById("btnplaypause");
+	navbar = document.getElementById("navbar");
+	
+	//Añadiendo Listeners
+	
+	btn.addEventListener("click",playPause,false);
+}
+
+```
+
+Este listener nos permitirá eliminar la llamada a la función playPause() con el método onClick de nuestro HTML 
+
+```
+<button id="btnplaypause">Play</button>
+
+```
+Lo que haremos ahora será añadir un nuevo controlador a nuestro HTML usando la variable nvbar que definimos anteriormente
+
+```
+<div id="controles">
+  <button id="btnplaypause">Play</button>
+  <input id="navbar" type="range" min="0" max="100" value="0" step="1">
+</div>
+```
+También añadiremos un nuevo listener para esto junto a los demás en el initialize
+
+```
+	navbar.addEventListener("change",vidBar,false);
+
+```
+Esto lo que hará es que cuando haya un cambio en la barra de navegación se va a llamar a la función vidBar() que implementaremos a continuación.
+
+
+```
+function vidBar(){
+	var navbarto = vid.duration * (navbar.value / 100);
+	vid.currentTime = navbarto;
+}
+
+```
+vid.duration nos dá la duración total del video.
+
+Básicamente lo que estamos haciendo en esta función es que al mover la barra de navegación el video se sitúe en ese punto.
+
+Lo que haremos a continuación será que a medida que avance el video se vea el progreso del mismo en la barra de navegación.
+
+Para ello añadiremos otro listener quedando nuestra función initialize de la siguiente forma:
+
+```
+function intialize(){
+	
+	//Referenciando las variables
+	
+	vid = document.getElementById("mi_video");
+	btn = document.getElementById("btnplaypause");
+	navbar = document.getElementById("navbar");
+	
+	//Añadiendo Listeners
+	
+	btn.addEventListener("click",playPause,false);
+	navbar.addEventListener("change",vidBar,false);
+	vid.addEventListener("timeupdate",actualiza_navbar,false);
+}
+```
+Lo que hará es que según pase el tiempo se va a llamar a la función actualiza_navbar() que definiremos a continuación
+```
+function actualiza_navbar(){
+	var new_time = vid.currentTime * (100 / vid.duration);
+	navbar.value = new_time;
+}
+```
 #### Información extra:
 
 * Si se añade controls o controls="controls en la etiqueta video, se pondrán los controles por defecto de HTML".
