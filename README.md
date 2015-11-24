@@ -2,7 +2,13 @@ STW: Audio y Video en JavaScript
 ===================
 Presentación para la asignatura de Sistemas y Tecnologías Web en la que implementaremos funcionalidades de audio y video usando HTML y JavaScript.
 
-Datos Adicionales 
+## Reproductor de Audio
+
+##Reproductor de vídeo
+
+##Enlaces utilizados
+
+##Datos Adicionales
 ----------------------------------------
 - Enlace a la página personal de Alejandro Ravelo Moreno: http://alu0100763379.github.io/
 - Enlace a la página personal de Rebecca Martínez Galán: http://rebeccamartinez.github.io/

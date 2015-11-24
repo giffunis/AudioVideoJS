@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vídeo en JavaScript</title>
+  <link rel="stylesheet" type="text/css" href="css/estilos.css">
+  <script src="javascript/index.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+  <div id="contenedor">
+    <!-- Si ponemos dentro de la etiqueta video controls o controls="controls" se ponen unos controles por defecto -->
+    <!-- Si ponemos dentro de la etiqueta video autoplay, el vídeo se inicia solo al cargar la página -->
+    <video id="mi_video" width="550" height="320" autoplay>
+      <source src="videos/video1.mp4">
+    </video>
+    <!-- Div que va a contener nuestros controles personalizados -->
+    <div id="controles">
+      <button id="btnplaypause" onclick="playPause(this, 'mi_video')">Pause</button>
+    </div>
+  </div>
+
+</body>
+</html>
