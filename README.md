@@ -65,7 +65,7 @@ En esta creamos una variable vid que represanta al vídeo que se ha cargado en l
 
 
 
-### Información extra:
+#### Información extra:
 
 * Si se añade controls o controls="controls en la etiqueta video, se pondrán los controles por defecto de HTML".
 ```
