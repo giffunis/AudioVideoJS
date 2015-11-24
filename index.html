@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Vídeo en JavaScript</title>
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
-  <script src="javascript/index.js" language="javascript" type="text/javascript"></script>
+  <script src="javascript/index.js" language="javascript" type="text/javascript"></script> 
 </head>
 <body>
   <div id="contenedor">
@@ -15,7 +15,8 @@
     </video>
     <!-- Div que va a contener nuestros controles personalizados -->
     <div id="controles">
-      <button id="btnplaypause" onclick="playPause(this, 'mi_video')">Play</button>
+      <button id="btnplaypause">Play</button>
+      <input id="navbar" type="range" min="0" max="100" value="0" step="1">
     </div>
   </div>
 </body>
