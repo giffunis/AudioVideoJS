@@ -1,6 +1,6 @@
 //Inicialización de Variables
 
-var vid, btn, navbar, tiempoActual, duracion;
+var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar;
 
 function intialize(){
 
@@ -11,12 +11,16 @@ function intialize(){
 	navbar = document.getElementById("navbar");
 	tiempoActual = document.getElementById("tiempoactual");
 	duracion = document.getElementById("duracion");
+	mutebtn = document.getElementById("mutebtn");
+	volumenbar = document.getElementById("volumenbar");
 
 	//Añadiendo Listeners
 
 	btn.addEventListener("click",playPause,false);
 	navbar.addEventListener("change",vidBar,false);
 	vid.addEventListener("timeupdate",actualiza_navbar,false);
+	mutebtn.addEventListener("click",vidmute,false);
+	volumenbar.addEventListener("change",volumen_set,false);
 }
 
 window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
@@ -56,6 +60,20 @@ function actualiza_navbar(){
 	if(minDuracion < 10){
 		minDuracion = "0" + minDuracion;
 	}
-	tiempoactual.innerHTML = minActual+":"+secActual;
+	tiempoActual.innerHTML = minActual+":"+secActual;
 	duracion.innerHTML = minDuracion+":"+secDuracion;
+}
+
+function vidmute(){
+	if(vid.muted){
+		vid.muted = false;
+		mutebtn.innerHTML = "Mute";
+	} else {
+		vid.muted = true;
+		mutebtn.innerHTML = "Unmute";
+	}
+}
+
+function volumen_set(){
+	vid.volume = volumenbar.value / 100;
 }
