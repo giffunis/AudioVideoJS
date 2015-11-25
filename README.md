@@ -89,9 +89,9 @@ Después crearemos la función initialize que usaremos para referenciar nuestras
 var vid, btn, navbar;
 
 function intialize(){
-	
+
 	//Referenciando las variables
-	
+
 	vid = document.getElementById("mi_video");
 	btn = document.getElementById("btnplaypause");
 	navbar = document.getElementById("navbar");
@@ -109,9 +109,9 @@ El código entero del javascript quedaría de la siguiente forma:
 var vid, btn, navbar;
 
 function intialize(){
-	
+
 	//Referenciando las variables
-	
+
 	vid = document.getElementById("mi_video");
 	btn = document.getElementById("btnplaypause");
 	navbar = document.getElementById("navbar");
@@ -141,21 +141,21 @@ A continuación reemplazaremos nuestro evento onclick mediante un listener que d
 
 ```
 function intialize(){
-	
+
 	//Referenciando las variables
-	
+
 	vid = document.getElementById("mi_video");
 	btn = document.getElementById("btnplaypause");
 	navbar = document.getElementById("navbar");
-	
+
 	//Añadiendo Listeners
-	
+
 	btn.addEventListener("click",playPause,false);
 }
 
 ```
 
-Este listener nos permitirá eliminar la llamada a la función playPause() con el método onClick de nuestro HTML 
+Este listener nos permitirá eliminar la llamada a la función playPause() con el método onClick de nuestro HTML
 
 ```
 <button id="btnplaypause">Play</button>
@@ -195,15 +195,15 @@ Para ello añadiremos otro listener quedando nuestra función initialize de la s
 
 ```
 function intialize(){
-	
+
 	//Referenciando las variables
-	
+
 	vid = document.getElementById("mi_video");
 	btn = document.getElementById("btnplaypause");
 	navbar = document.getElementById("navbar");
-	
+
 	//Añadiendo Listeners
-	
+
 	btn.addEventListener("click",playPause,false);
 	navbar.addEventListener("change",vidBar,false);
 	vid.addEventListener("timeupdate",actualiza_navbar,false);
@@ -216,6 +216,71 @@ function actualiza_navbar(){
 	navbar.value = new_time;
 }
 ```
+
+-------------------------------------------------------------------
+
+### Mostrar duración y tiempo actual del vídeo
+
+En primer lugar modificamos el html y añadimos la zona donde queremos que se muestren los datos de duración y tiempo. Esto lo haremos añadiendo etiquetas span a nuestro div controles:
+```
+<div id="controles">
+  <button id="btnplaypause">Play</button>
+  <input id="navbar" type="range" min="0" max="100" value="0" step="1">
+  <span id="tiempoactual"></span>   /    <span id="duracion"></span>
+</div>
+```
+
+A continuación procedemos a modificar el código JavaScript. En primer lugar añadimos dos nuevas variables, tiempoActual y duracion.
+
+```
+var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar;
+```
+
+Ahora le asignamos su valor correspondiente a cada una de las nuevas variables. Para ello ponemos lo siguiente dentro de la función initialize.
+
+```
+tiempoActual = document.getElementById("tiempoactual");
+duracion = document.getElementById("duracion");
+```
+
+Por último ampliamos la función actualiza_navbar():
+
+```
+function actualiza_navbar(){
+	var new_time = vid.currentTime * (100 / vid.duration);
+	navbar.value = new_time;
+	// Aqui empieza el codigo para mostrar el tiempo actual del video y su duración
+	var minActual = Math.floor(vid.currentTime / 60);
+	var secActual = Math.floor(vid.currentTime - minActual * 60);
+	var minDuracion = Math.floor(vid.duration / 60);
+	var secDuracion = Math.floor(vid.duration - minDuracion * 60);
+	if (secActual < 10){
+		secActual = "0" + secActual;
+	}
+	if(minActual < 10){
+		minActual = "0" + minActual;
+	}
+	if(secDuracion < 10){
+		secDuracion = "0" + secDuracion;
+	}
+	if(minDuracion < 10){
+		minDuracion = "0" + minDuracion;
+	}
+	tiempoActual.innerHTML = minActual+":"+secActual;
+	duracion.innerHTML = minDuracion+":"+secDuracion;
+}
+```
+
+* minActual almacena los minutos reproducidos del vídeo.
+* secActual almacena los segundos reproducidos del vídeo.
+* minduración almacena los minutos totales del vídeo.
+* secDuracion almacena los segundos totales del vídeo.
+* En los ifs lo que se hace es que cada se añada un 0 delante si los minutos o segundos correspondientes son menor que 0, de esta forma en vez de aparecernos en este formato: 9:15, 3:4 ... nos aparecerá lo siguiente: 09:15, 03:04 ...
+* En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
+
+-------------------------------------------------------------------
+
+
 #### Información extra:
 
 * Si se añade controls o controls="controls en la etiqueta video, se pondrán los controles por defecto de HTML".
