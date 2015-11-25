@@ -219,7 +219,7 @@ function actualiza_navbar(){
 
 -------------------------------------------------------------------
 
-### Mostrar duración y tiempo actual del vídeo
+#### Mostrar duración y tiempo actual del vídeo
 
 En primer lugar modificamos el html y añadimos la zona donde queremos que se muestren los datos de duración y tiempo. Esto lo haremos añadiendo etiquetas span a nuestro div controles:
 ```
@@ -279,7 +279,8 @@ function actualiza_navbar(){
 * En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
 
 -------------------------------------------------------------------
-
+-------------------------------------------------------------------
+####Pantalla completa
 
 #### Información extra:
 

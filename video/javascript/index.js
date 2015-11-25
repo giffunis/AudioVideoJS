@@ -1,6 +1,6 @@
 //Inicialización de Variables
 
-var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar;
+var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar, pantcompl;
 
 function intialize(){
 
@@ -13,6 +13,7 @@ function intialize(){
 	duracion = document.getElementById("duracion");
 	mutebtn = document.getElementById("mutebtn");
 	volumenbar = document.getElementById("volumenbar");
+	pantcompl = document.getElementById("pantcompl");
 
 	//Añadiendo Listeners
 
@@ -21,6 +22,8 @@ function intialize(){
 	vid.addEventListener("timeupdate",actualiza_navbar,false);
 	mutebtn.addEventListener("click",vidmute,false);
 	volumenbar.addEventListener("change",volumen_set,false);
+	pantcompl.addEventListener("click",pantallaCompleta,false);
+
 }
 
 window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
@@ -76,4 +79,16 @@ function vidmute(){
 
 function volumen_set(){
 	vid.volume = volumenbar.value / 100;
+}
+
+function pantallaCompleta(){
+	if(vid.requestFullScreen){
+		vid.requestFullScreen();
+	}
+	else if (vid.webkitRequestFullScreen) {
+		vid.webkitRequestFullScreen();
+	}
+	else if (vid.mozRequestFullScreen) {
+		vid.mozRequestFullScreen();
+	}
 }
