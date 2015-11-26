@@ -279,8 +279,48 @@ function actualiza_navbar(){
 * En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
 
 -------------------------------------------------------------------
+Aqui va lo tuyo ale xD
 -------------------------------------------------------------------
 ####Pantalla completa
+
+Creamos un nuevo boton HTML en el div de controles:
+
+```
+<button id="pantcompl">[ &nbsp; ]</button>
+```
+
+En el fichero JavaScript añadimos una nueva variable y le asignamos su valor correspondiente como hemos hecho en los pasos anteriores:
+
+```
+var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar, pantcompl;
+function intialize(){
+
+  ....
+	pantcompl = document.getElementById("pantcompl");
+  ....
+```
+
+A continuación creamos un EventListener dentro de la función initialize(), para que cuando se haga click en el botón de pantalla completa se realize la acción correspondiente.
+
+```
+pantcompl.addEventListener("click",pantallaCompleta,false);
+```
+
+Por último creamos la función pantallaCompleta.
+
+```
+function pantallaCompleta(){
+	if(vid.requestFullScreen){
+		vid.requestFullScreen();
+	}
+	else if (vid.webkitRequestFullScreen) {
+		vid.webkitRequestFullScreen();
+	}
+	else if (vid.mozRequestFullScreen) {
+		vid.mozRequestFullScreen();
+	}
+}
+```
 
 #### Información extra:
 
