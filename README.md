@@ -283,7 +283,70 @@ Lo que trataremos de hacer ahora será centrarnos en las funcionalidades de audi
 
 Para empezar vamos a crear un botón que mutee y desmutee el video. 
 
-Para ello 
+Para ello en el fichero index.html añadiremos la siguiente linea debajo de las etiquetas span que muestran el tiempo inicial.
+```
+<button id="mutebtn">Mute</button>
+```
+Ahora vamos a darle funcionalidad.
+
+En el fichero index.js crearemos otra variable que llamaremos mutebtn y la inicializaremos.
+```
+mutebtn = document.getElementById("mutebtn");
+```
+A su vez añadiremos otro listener donde usaremos esta nueva variable.
+```
+mutebtn.addEventListener("click",vidmute,false);
+```
+Como vemos es un evento click que llama a la función vidmute que definiremos a continuación.
+
+```
+function vidmute(){
+	if(vid.muted){
+		vid.muted = false;
+		mutebtn.innerHTML = "Mute";
+	} else {
+		vid.muted = true;
+		mutebtn.innerHTML = "Unmute";
+	}
+}
+```
+A continuación pasaremos a crear una barra para subir y bajar el volumen.
+
+En el index.html añadiremos lo siguiente.
+
+```
+<input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
+```
+
+Al igual que antes pasaremos a proporcionarle funcionalidad.
+
+Crearemos la variable volumenbar y la inicializaremos.
+
+```
+volumenbar = document.getElementById("volumenbar");
+```
+Y añadimos el listener correspondiente.
+
+```
+volumenbar.addEventListener("change",volumen_set,false);
+```
+
+Al igual que la barra de navegación del video, esta se activa con un evento change, llamando a la función volumen_set().
+
+```
+function volumen_set(){
+	vid.volume = volumenbar.value / 100;
+}
+```
+
+Como dato adicional, en la sentencia 
+```
+
+<input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
+```
+
+value es igual a 100 para que la barra este al máximo por defecto.
+
 -------------------------------------------------------------------
 ####Pantalla completa
 
