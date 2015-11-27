@@ -279,7 +279,11 @@ function actualiza_navbar(){
 * En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
 
 -------------------------------------------------------------------
-Aqui va lo tuyo ale xD
+Lo que trataremos de hacer ahora será centrarnos en las funcionalidades de audio de nuestro video.
+
+Para empezar vamos a crear un botón que mutee y desmutee el video. 
+
+Para ello 
 -------------------------------------------------------------------
 ####Pantalla completa
 
