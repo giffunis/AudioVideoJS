@@ -31,10 +31,10 @@ window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML est
 function playPause(){
 	if(vid.paused){
 		vid.play();
-		btn.innerHTML = "Pause";
+		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png")';
 	} else {
 		vid.pause();
-		btn.innerHTML = "Play";
+		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png")';
 	}
 }
 
@@ -70,10 +70,10 @@ function actualiza_navbar(){
 function vidmute(){
 	if(vid.muted){
 		vid.muted = false;
-		mutebtn.innerHTML = "Mute";
+		mutebtn.style.background = 'url("http://www.academia.org.mx/aml_static/dm2/style/icon/soundOn.png")';
 	} else {
 		vid.muted = true;
-		mutebtn.innerHTML = "Unmute";
+		mutebtn.style.background = 'url("http://epresskitz.com/images/mute_icon.png")';
 	}
 }
 
