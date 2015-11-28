@@ -1,23 +1,23 @@
 //Definición de Variables
-var audioElm, inicio, masvel, menosvel, mute, navbar, volumenbar, seeking,  tiempoActual, duracion;
+var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, volumenbar, seeking,  tiempoActual, duracion;
 
 function initialize () {
   //Asignacion de su valor a cada variable
   audioElm = document.getElementById("audio1");
   inicio = document.getElementById("iniciar");
-  pp = document.getElementById('playbutton');
+  playbutton = document.getElementById('playbutton');
   masvel = document.getElementById("masvel");
   menosvel = document.getElementById("menosvel");
   mute = document.getElementById("mute");
   navbar = document.getElementById("navbar");
   volumenbar = document.getElementById("volumenbar");
-  tiempoActual = document.getElementById("tiempoactual");
+  tiempoActual = document.getElementById("tiempoActual");
   duracion = document.getElementById("duracion");
 
 
   //EventListeners
   inicio.addEventListener("click",iniciar);
-  pp.addEventListener("click",playPausa);
+  playbutton.addEventListener("click",playPausa);
   masvel.addEventListener("click",aumentarVel);
   menosvel.addEventListener("click",disminuirVel);
   mute.addEventListener("click",mutear);

@@ -2,24 +2,30 @@
 <html>
  <head>
    <title>Reproductor de audio</title>
+   <link rel="stylesheet" type="text/css" href="css/estilos.css">
    <script src="javascript/index.js" language="javascript" type="text/javascript"></script>
 
 </head>
 <body>
 
-<div>
-  <input type="text" id="audioFile" value="audio.mp3" size="60" />
+<div id="fichero">
+  <input type="text" id="audioFile" placeholder="audio.mp3" size="60" />
+  <button id="iniciar">Cargar audio</button>
 </div>
-<button id="iniciar">Cargar audio</button>
- <button id="playbutton">Play</button>
- <button id="masvel">Increase speed</button>
- <button id="menosvel">Decrease speed</button><br />
- <button id="mute">mute</button><br />
- <input id="navbar" type="range" min="0" max="100" value="0" step="1">
- <input id="volumenbar" type="range" min="0" max="100" value="0" step="1">
- <span id="tiempoactual">00:00</span>   /    <span id="duracion">00:00</span>
- <div>
-  <audio id="audio1" style="width:25%"></audio>
+<div id="main">
+   <img src="fotos/musica.jpg" alt="">
+   <div id="controles">
+     <button id="playbutton">Pausa</button>
+     <button id="masvel">Increase speed</button>
+     <button id="menosvel">Decrease speed</button><br />
+     <button id="mute">mute</button><br />
+     <input id="navbar" type="range" min="0" max="100" value="0" step="1">
+     <input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
+     <span id="tiempoActual">00:00</span>   /    <span id="duracion">00:00</span>
+   </div>
+   <div>
+    <audio id="audio1" style="width:25%"></audio>
+   </div>
  </div>
 </body>
 </html>
