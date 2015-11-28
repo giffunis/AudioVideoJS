@@ -20,6 +20,8 @@ function intialize(){
 	btn.addEventListener("click",playPause,false);
 	navbar.addEventListener("change",vidBar,false);
 	vid.addEventListener("timeupdate",actualiza_navbar,false);
+	navbar.addEventListener("mousedown", md);
+	navbar.addEventListener("mouseup", mu);
 	mutebtn.addEventListener("click",vidmute,false);
 	volumenbar.addEventListener("change",volumen_set,false);
 	pantcompl.addEventListener("click",pantallaCompleta,false);
@@ -27,6 +29,13 @@ function intialize(){
 }
 
 window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
+function md (){
+	vid.pause();
+}
+
+function mu () {
+	vid.play();
+}
 
 function playPause(){
 	if(vid.paused){

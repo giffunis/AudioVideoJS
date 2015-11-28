@@ -21,9 +21,9 @@ function initialize () {
   masvel.addEventListener("click",aumentarVel);
   menosvel.addEventListener("click",disminuirVel);
   mute.addEventListener("click",mutear);
-  navbar.addEventListener("mousedown", function(event){ seeking = true; seek(event); });
+  navbar.addEventListener("mousedown", function(event){ seeking = true; audioElm.pause(); seek(event); });
   navbar.addEventListener("mousemove", function(event){ seek(event); });
-  navbar.addEventListener("mouseup", function(){ seeking = false; });
+  navbar.addEventListener("mouseup", function(){ seeking = false; audioElm.play(); });
   volumenbar.addEventListener("mousemove", volumen_set);
   audioElm.addEventListener("timeupdate", function() { actualizarTiempo(); })
 }
