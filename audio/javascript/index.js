@@ -1,5 +1,5 @@
 //Definición de Variables
-var audioElm, inicio, masvel, menosvel, mute;
+var audioElm, inicio, masvel, menosvel, mute, navbar, volumenbar, seeking,  tiempoActual, duracion;
 
 function initialize () {
   //Asignacion de su valor a cada variable
@@ -9,13 +9,23 @@ function initialize () {
   masvel = document.getElementById("masvel");
   menosvel = document.getElementById("menosvel");
   mute = document.getElementById("mute");
+  navbar = document.getElementById("navbar");
+  volumenbar = document.getElementById("volumenbar");
+  tiempoActual = document.getElementById("tiempoactual");
+  duracion = document.getElementById("duracion");
+
 
   //EventListeners
-  inicio.addEventListener("click",iniciar,false);
-  pp.addEventListener("click",playPausa,false);
-  masvel.addEventListener("click",aumentarVel,false);
-  menosvel.addEventListener("click",disminuirVel,false);
-  mute.addEventListener("click",mutear,false);
+  inicio.addEventListener("click",iniciar);
+  pp.addEventListener("click",playPausa);
+  masvel.addEventListener("click",aumentarVel);
+  menosvel.addEventListener("click",disminuirVel);
+  mute.addEventListener("click",mutear);
+  navbar.addEventListener("mousedown", function(event){ seeking = true; seek(event); });
+  navbar.addEventListener("mousemove", function(event){ seek(event); });
+  navbar.addEventListener("mouseup", function(){ seeking = false; });
+  volumenbar.addEventListener("mousemove", volumen_set);
+  audioElm.addEventListener("timeupdate", function() { actualizarTiempo(); })
 }
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
@@ -63,4 +73,40 @@ function mutear (){
 		audioElm.muted = true;
     document.getElementById("mute").innerHTML = "mutear";
 	}
+}
+
+function volumen_set () {
+  audioElm.volume = volumenbar.value / 100;
+}
+
+function seek(event) {
+  if(seeking){
+    navbar.value = event.clientX - navbar.offsetLeft;
+    var seekto = audioElm.duration * (navbar.value / 100);
+    audioElm.currentTime = seekto;
+  }
+}
+
+function actualizarTiempo() {
+  var new_time = audioElm.currentTime * (100 / audioElm.duration);
+  navbar.value = new_time;
+  var minActual = Math.floor(audioElm.currentTime / 60);
+  var secActual = Math.floor(audioElm.currentTime - minActual * 60);
+  var minDuracion = Math.floor(audioElm.duration / 60);
+  var secDuracion = Math.floor(audioElm.duration - minDuracion * 60);
+  if (secActual < 10){
+    secActual = "0" + secActual;
+  }
+  if(minActual < 10){
+    minActual = "0" + minActual;
+  }
+  if(secDuracion < 10){
+    secDuracion = "0" + secDuracion;
+  }
+  if(minDuracion < 10){
+    minDuracion = "0" + minDuracion;
+  }
+  tiempoActual.innerHTML = minActual+":"+secActual;
+  duracion.innerHTML = minDuracion+":"+secDuracion;
+
 }
