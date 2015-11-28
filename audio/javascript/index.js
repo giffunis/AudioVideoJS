@@ -41,11 +41,11 @@ function playPausa() {
   if (document.getElementById("audio1")) {
     if (audioElm.paused) {
       audioElm.play();
-      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png")';
+      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
     }
       else {
         audioElm.pause();
-        playbutton.style.background = 'url("http://mannyzone.com/images/play.png")';
+        playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
       }
   }
 }
@@ -68,10 +68,10 @@ function disminuirVel() {
 function mutear (){
   if(audioElm.muted){
 		audioElm.muted = false;
-    mute.style.background = 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png")';
+    mute.style.background = 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png") no-repeat';
 	} else {
 		audioElm.muted = true;
-    mute.style.background = 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png")';
+    mute.style.background = 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png") no-repeat';
 	}
 }
 
