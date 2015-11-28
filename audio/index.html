@@ -4,12 +4,14 @@
    <title>Reproductor de audio</title>
 </head>
 <body>
+
 <div>
  <audio id="audio1" style="width:25%" controls></audio>
 </div>
-<div>
-  <input type="text" id="audioFile" value="audio.mp3" size="60" />
-</div>
+
+<p>
+<input id="audioFile" type="file" name="filechooser" size="10" accept="audio/*"></input>
+</p>
 <button id="iniciar">Cargar audio</button>
  <button id="playbutton">Play</button>
  <button id="masvel">Increase speed</button>
