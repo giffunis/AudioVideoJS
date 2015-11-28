@@ -1,0 +1,22 @@
+
+div {
+  width: 500px;
+  height: 500px;
+  /*border: 3px double grey;*/
+  margin-left:300px;
+  margin-top: 25px;
+}
+
+.val {
+  width: 450px;
+}
+
+
+audio {
+  width: 500px;
+}
+
+img {
+  width: 500px;
+  height: 400px;
+}
