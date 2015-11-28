@@ -1,5 +1,5 @@
 //Definición de Variables
-var audioElm, inicio, masvel, menosvel;
+var audioElm, inicio, masvel, menosvel, mute;
 
 function initialize () {
   //Asignacion de su valor a cada variable
@@ -8,12 +8,14 @@ function initialize () {
   pp = document.getElementById('playbutton');
   masvel = document.getElementById("masvel");
   menosvel = document.getElementById("menosvel");
+  mute = document.getElementById("mute");
 
   //EventListeners
   inicio.addEventListener("click",iniciar,false);
   pp.addEventListener("click",playPausa,false);
   masvel.addEventListener("click",aumentarVel,false);
   menosvel.addEventListener("click",disminuirVel,false);
+  mute.addEventListener("click",mutear,false);
 }
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
@@ -51,4 +53,14 @@ function disminuirVel() {
   } else {
     audioElm.playbackRate -= 1;
   }
+}
+
+function mutear (){
+  if(audioElm.muted){
+		audioElm.muted = false;
+    document.getElementById("mute").innerHTML = "mutear";
+	} else {
+		audioElm.muted = true;
+    document.getElementById("mute").innerHTML = "mutear";
+	}
 }
