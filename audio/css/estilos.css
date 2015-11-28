@@ -1,5 +1,5 @@
 #main {
-  width: 700px;
+  width: 500px;
   height: 500px;
   margin-left:300px;
   margin-top: 25px;
@@ -13,4 +13,38 @@
   width: 700px;
   margin-left:300px;
   margin-top: 25px;
+}
+
+#playbutton{
+  background:url("http://mannyzone.com/images/pause.png" );
+	border:none;
+	width:18px;
+	height:18px;
+	cursor:pointer;
+	margin-top:0.3em;
+  margin-left:0.3em;
+  margin-right:0.3em;
+}
+
+#playbutton:hover{ opacity:0.9; }
+
+#mute{
+  background:url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png" );
+	border:none;
+	width:18px;
+	height:18px;
+	cursor:pointer;
+	margin-top:0.5em;
+  margin-left:0.3em;
+  margin-right:0.3em;
+}
+
+#mute:hover{ opacity:0.9; }
+
+#tiempoActual{
+  margin-left:0.3em;
+}
+
+#duracion{
+  margin-right:0.3em;
 }

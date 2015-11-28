@@ -41,11 +41,11 @@ function playPausa() {
   if (document.getElementById("audio1")) {
     if (audioElm.paused) {
       audioElm.play();
-      document.getElementById("playbutton").innerHTML = "Pause";
+      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png")';
     }
       else {
         audioElm.pause();
-        document.getElementById("playbutton").innerHTML = "play";
+        playbutton.style.background = 'url("http://mannyzone.com/images/play.png")';
       }
   }
 }
@@ -68,10 +68,10 @@ function disminuirVel() {
 function mutear (){
   if(audioElm.muted){
 		audioElm.muted = false;
-    document.getElementById("mute").innerHTML = "mutear";
+    mute.style.background = 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png")';
 	} else {
 		audioElm.muted = true;
-    document.getElementById("mute").innerHTML = "mutear";
+    mute.style.background = 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png")';
 	}
 }
 
