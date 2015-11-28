@@ -4,6 +4,140 @@ Presentación para la asignatura de Sistemas y Tecnologías Web en la que implem
 
 ## Reproductor de Audio
 
+En este apartado se explicará como crear y personalizar un reproductor de audio.
+
+En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
+
+```
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="UTF-8">
+   <title>Reproductor de audio</title>
+   <link rel="stylesheet" type="text/css" href="css/estilos.css">
+   <script src="javascript/index.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div id="main">
+   <img src="fotos/musica.jpg" alt="">
+   <div id="controles">
+   </div>
+   <div>
+    <audio id="audio1" style="width:25%"></audio>
+   </div>
+ </div>
+</body>
+</html>
+```
+* En el div fichero es donde cargaremos el fichero de audio que queremos que se reproduzca.
+* En el div controles iremos añadiendo los botones o elementos que se encargarán de controlar el vídeo.
+* La etiqueta audio es la que contendrá el archivo de audio que cargemos.
+
+#### Carga del fichero
+
+1. ñadimos el input y el botón que se encargarán cargar el audio seleccionado.
+
+```
+<body>
+  <div id="fichero">
+    <input type="text" id="audioFile" placeholder="audio.mp3" size="60" />
+    <button id="iniciar">Cargar audio</button>
+  </div>
+  <div id="main">
+    ...
+  </div>
+</body>
+```
+
+2. Le damos funcionalidad al botón "Cargar audio". Para ello usamos JavaScript (fichero index.js).
+
+
+* Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
+```
+var inicio;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  inicio = document.getElementById("iniciar");
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+}
+```
+inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
+
+* Definimos la función iniciar(): 
+
+```
+function iniciar () {
+  if (audioElm.paused == true) {
+    // Get file from text box and assign it to the source of the audio element
+    audioElm.src = document.getElementById('audioFile').value;
+    audioElm.play();
+  }
+}
+```
+En esta función se coge el audio introducido en el area de texto y se asigna al elemento de audio. A continuación se inicia la reproducción.
+
+#### Play/pausa
+1. Añadimos el botón que se encargará de parar y pausar el vídeo dentro del div controles.
+
+```
+<button id="playbutton"></button>
+```
+
+2. Añadimos al css un icono de play para que se muestre como botón.
+```
+#playbutton{
+  background:url("http://mannyzone.com/images/pause.png" ) no-repeat;
+  ...
+}
+```
+Además de esta se le han añadido otras propiedadades como de posición que se podrán ver en el archivo css correspondiente.
+
+3. Le damos funcionalidad al botón usando JavaScript.
+
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+
+```
+var audioElm, inicio, playbutton;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  inicio = document.getElementById("iniciar");
+  audioElm = document.getElementById("audio1");
+  playbutton = document.getElementById('playbutton');
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+  playbutton.addEventListener("click",playPausa);
+}
+```
+playbutton.addEventListener("click",playPausa): cuando se haga click en el botón con id playbutton se ejecutará la función playPausa, que definiremos a continuación.
+
+* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
+
+```
+window.onload = initialize;
+```
+* Definimos la la funcion playPausa():
+```
+function playPausa() {
+  if (document.getElementById("audio1")) {
+    if (audioElm.paused) {
+      audioElm.play();
+      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
+    }
+      else {
+        audioElm.pause();
+        playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
+      }
+  }
+}
+```
+Esta funcuón comprueba si existe un elemento de audio. Si lo hay comprueba si esta pausado o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
+
+
 ##Reproductor de vídeo
 
 En este apartado se explicará como crear y personalizar un reproductor de vídeo en una página web.
@@ -281,7 +415,7 @@ function actualiza_navbar(){
 -------------------------------------------------------------------
 Lo que trataremos de hacer ahora será centrarnos en las funcionalidades de audio de nuestro video.
 
-Para empezar vamos a crear un botón que mutee y desmutee el video. 
+Para empezar vamos a crear un botón que mutee y desmutee el video.
 
 Para ello en el fichero index.html añadiremos la siguiente linea debajo de las etiquetas span que muestran el tiempo inicial.
 ```
@@ -339,7 +473,7 @@ function volumen_set(){
 }
 ```
 
-Como dato adicional, en la sentencia 
+Como dato adicional, en la sentencia
 ```
 
 <input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
