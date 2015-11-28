@@ -19,6 +19,8 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 </head>
 <body>
 <div id="main">
+   <div id="fichero">
+   </div>
    <img src="fotos/musica.jpg" alt="">
    <div id="controles">
    </div>
@@ -35,7 +37,7 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 
 #### Carga del fichero
 
-1. ñadimos el input y el botón que se encargarán cargar el audio seleccionado.
+1. Añadimos el input y el botón que se encargarán cargar el audio seleccionado.
 
 ```
 <body>
@@ -65,7 +67,7 @@ function initialize () {
 ```
 inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
 
-* Definimos la función iniciar(): 
+* Definimos la función iniciar():
 
 ```
 function iniciar () {
@@ -77,6 +79,8 @@ function iniciar () {
 }
 ```
 En esta función se coge el audio introducido en el area de texto y se asigna al elemento de audio. A continuación se inicia la reproducción.
+
+###### Ahora ya podemos cargar un audio desde local #####
 
 #### Play/pausa
 1. Añadimos el botón que se encargará de parar y pausar el vídeo dentro del div controles.
