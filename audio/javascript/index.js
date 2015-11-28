@@ -29,11 +29,11 @@ function playPausa() {
   if (document.getElementById("audio1")) {
     if (audioElm.paused) {
       audioElm.play();
-      document.getElementById("playbutton").innerHTML = "Pause"; // Set button text == Pause
+      document.getElementById("playbutton").innerHTML = "Pause";
     }
       else {
         audioElm.pause();
-        document.getElementById("playbutton").innerHTML = "play"; // Set button text == Play
+        document.getElementById("playbutton").innerHTML = "play";
       }
   }
 }
