@@ -78,7 +78,7 @@ Lo siguiente será añadir esta línea debajo
 ```
 var vid, btn, navbar;
 
-window.onload = intialize;
+window.onload = initialize;
 
 ```
 Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML con su id antes de que estos se hayan cargado.
@@ -88,7 +88,7 @@ Después crearemos la función initialize que usaremos para referenciar nuestras
 ```
 var vid, btn, navbar;
 
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -97,7 +97,7 @@ function intialize(){
 	navbar = document.getElementById("navbar");
 }
 
-window.onload = intialize;
+window.onload = initialize;
 
 ```
 Gracias a esto ya no necesitamos pasarle parámetros a nuestra función playPause() por lo que podemos quitárselos. Así mismo podemos quitar la referencia de vid porque ya la tenemos en el initialize.
@@ -108,7 +108,7 @@ El código entero del javascript quedaría de la siguiente forma:
 ```
 var vid, btn, navbar;
 
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -117,7 +117,7 @@ function intialize(){
 	navbar = document.getElementById("navbar");
 }
 
-window.onload = intialize;
+window.onload = initialize;
 
 function playPause(){
 	if(vid.paused){
@@ -140,7 +140,7 @@ A su vez, en el HTML, cuando llamamos a la función playPause(), también debemo
 A continuación reemplazaremos nuestro evento onclick mediante un listener que definiremos en nuestra función initialize
 
 ```
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -194,7 +194,7 @@ Lo que haremos a continuación será que a medida que avance el video se vea el 
 Para ello añadiremos otro listener quedando nuestra función initialize de la siguiente forma:
 
 ```
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -360,7 +360,7 @@ En el fichero JavaScript añadimos una nueva variable y le asignamos su valor co
 
 ```
 var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar, pantcompl;
-function intialize(){
+function initialize(){
 
   ....
 	pantcompl = document.getElementById("pantcompl");
@@ -388,6 +388,44 @@ function pantallaCompleta(){
 	}
 }
 ```
+Lo que haremos a continuación será modificar un poco el css de forma que en vez de que aparezcan los botones de play, pause, mute y unmute, aparezcan opciones visuales que sean más cómodas de usar e interpretar para los usuarios.
+
+En el css modificamos el botón que pausa y reanuda el video de la siguiente manera.
+
+```
+#btnplaypause{
+  background:url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png" );
+	border:none;
+	width:18px;
+	height:18px;
+	cursor:pointer;
+}
+
+#btnplaypause:hover{ opacity:0.7; }
+```
+En el background le añadimos una imagen de "play" con width y height ajustamos el tamaño del botón al de la imagen y hacemos que al ponernos encima de este, el color del mismo, se haga un poco más opaco.
+
+En el botón con el ID btnplaypause del HTML eliminamos la palabra "play" ya que ahora tenemos la imagen.
+
+A continuación en el index.js modificaremos la función playPause() para que quede de la siguiente forma.
+
+```
+function playPause(){
+	if(vid.paused){
+		vid.play();
+		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png")';
+	} else {
+		vid.pause();
+		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png")';
+	}
+}
+```
+Lo que hacemos aquí es que en vez de que no salgan las palabras play y pause, modificamos el stilo del botón para que aparezcan las imágenes de play y pause. (La primera corresponde a pause y la segunda a play).
+
+Para los botones de mute y unmute se sigue el mismo procedimiento (cambiar el css y la función correspondiente en el index.js).
+
+Sin embargo para el de pantalla completa sólo hace falta hacer lo mismo que los otros en el css, no hace falta tocar el index.js.
+
 
 #### Información extra:
 

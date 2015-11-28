@@ -2,7 +2,7 @@
 
 var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar, pantcompl;
 
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -28,7 +28,7 @@ function intialize(){
 
 }
 
-window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
+window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
 function md (){
 	vid.pause();
 }
