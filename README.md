@@ -32,7 +32,7 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 </html>
 ```
 * En el div fichero es donde cargaremos el fichero de audio que queremos que se reproduzca.
-* En el div controles iremos añadiendo los botones o elementos que se encargarán de controlar el vídeo.
+* En el div controles iremos añadiendo los botones o elementos que se encargarán de controlar el video.
 * La etiqueta audio es la que contendrá el archivo de audio que cargemos.
 
 #### Carga del fichero
@@ -89,7 +89,7 @@ En esta función se coge el audio introducido en el area de texto y se asigna al
 ###### ¡Ahora ya podemos cargar un audio desde local! #####
 
 #### Play/pausa
-1. Añadimos el botón que se encargará de parar y pausar el vídeo dentro del div controles.
+1. Añadimos el botón que se encargará de parar y pausar el video dentro del div controles.
 
 ```
 <button id="playbutton"></button>
@@ -108,7 +108,7 @@ Además de esta se le han añadido otras propiedadades como de posición que se 
 
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 
 ```
 var audioElm, inicio, playbutton;
@@ -237,11 +237,11 @@ function aumentarVel() {
 }
 ```
 
-Esta función accede a la propiedad playbackRate del elemento de audio, que es el que hace referencia a la velocidad del vídeo y la aumenta en 1.
+Esta función accede a la propiedad playbackRate del elemento de audio, que es el que hace referencia a la velocidad del video y la aumenta en 1.
 
 #### Mutear audio
 
-1.  Añadimos el botón que se encargará de mutear el vídeo dentro del div controles.
+1.  Añadimos el botón que se encargará de mutear el video dentro del div controles.
 ```
 <button id="mute">
 ```
@@ -294,7 +294,7 @@ Esta función comprueba si el elemento está muteado accediendo a la propiedad m
 
 #### Barra de progreso 1
 
-En este apartado se creará una barra de progreso que nos servirá para adelantar o atrasar el vídeo a la posición que deseemos.
+En este apartado se creará una barra de progreso que nos servirá para adelantar o atrasar el video a la posición que deseemos.
 
 1. Añadimos la barra de progreso dentro del div controles:
 
@@ -337,9 +337,9 @@ function audioBar() {
 ```
 Básicamente lo que estamos haciendo en esta función es que al mover la barra de navegación el audio se sitúe en ese punto.
 
-audioElm.duration nos da la duración total del vídeo. Es una propiedad ya definida en JavaScript.
+audioElm.duration nos da la duración total del video. Es una propiedad ya definida en JavaScript.
 
-* Definimos la la función md():
+* Definimos la función md():
 ```
 function md (){
 	audioElm.pause();
@@ -433,10 +433,10 @@ unction actualizarTiempo() {
   duracion.innerHTML = minDuracion+":"+secDuracion;
 }
 ```
-* minActual almacena los minutos reproducidos del vídeo.
-* secActual almacena los segundos reproducidos del vídeo.
-* minduración almacena los minutos totales del vídeo.
-* secDuracion almacena los segundos totales del vídeo.
+* minActual almacena los minutos reproducidos del video.
+* secActual almacena los segundos reproducidos del video.
+* minduración almacena los minutos totales del video.
+* secDuracion almacena los segundos totales del video.
 * En los ifs lo que se hace es que se añada un 0 delante si los minutos o segundos correspondientes son menor que 0, de esta forma en vez de aparecernos en este formato: 9:15, 3:4 ... nos aparecerá lo siguiente: 09:15, 03:04 ...
 * En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
 
@@ -447,7 +447,7 @@ unction actualizarTiempo() {
 ```
 <input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
 ```
-La barra es igual que la de progreso con la diferencia de que el valor inicial es igual a 100. Por lo tanto el vídeo comienza con el volumen al máximo.
+La barra es igual que la de progreso con la diferencia de que el valor inicial es igual a 100. Por lo tanto el video comienza con el volumen al máximo.
 
 2. Le damos funcionalidad al botón usando JavaScript.
 
@@ -480,21 +480,21 @@ function volumen_set () {
 ```
 -------------------------------------------------------------------
 
-##Reproductor de vídeo
+##Reproductor de video
 
-En este apartado se explicará como crear y personalizar un reproductor de vídeo en una página web. Las funciones son muy similares, y en muchos casos iguales que a las del reproductor de auido, por lo tanto explicaremos aquellas cosas que son diferentes.
+En este apartado se explicará como crear y personalizar un reproductor de video en una página web. Las funciones son muy similares, y en muchos casos iguales que a las del reproductor de auido, por lo tanto explicaremos aquellas cosas que son diferentes.
 
 
 ####Funciones idénticas al audio
 
-A continuación se muestra una lista de funciones que son iguales tanto en el reproductor de audio como en el de vídeo:
+A continuación se muestra una lista de funciones que son iguales tanto en el reproductor de audio como en el de video:
 * Play/Pausa
 * Mute
 * Dismunuir velocidad
 * Aumentar velocidad
 * Barra de progreso
 * Barra de volumen
-* Tiempo actual y duración del vídeo
+* Tiempo actual y duración del video
 
 #### Pantalla completa
 
@@ -560,11 +560,11 @@ La razón de tantas comprobaciones, es que dependiendo del navegador y la versi�
 
 [MSDN Audio](https://msdn.microsoft.com/es-es/library/gg589489%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
 
-[MSDN Vídeo](https://msdn.microsoft.com/es-es/library/hh924823(v=vs.85).aspx)
+[MSDN Video](https://msdn.microsoft.com/es-es/library/hh924823(v=vs.85).aspx)
 
 [Audio You Tube](https://www.youtube.com/watch?v=s7-uYXJOtyc)
 
-Tutotrial de Vídeo You Tube
+Tutotrial de Video You Tube
 
 * [Parte 1](https://www.youtube.com/watch?v=V8_wEZD160g)
 * [Parte 2](https://www.youtube.com/watch?v=Nnlb6vwszl4)
@@ -588,7 +588,7 @@ Tutorial de Audio You Tube
 
 [Reproductor de audio](http://rebeccamartinez.github.io/Audio_Video_JS/audio/)
 
-[Reproductor de vídeo](http://rebeccamartinez.github.io/Audio_Video_JS/video/)
+[Reproductor de video](http://rebeccamartinez.github.io/Audio_Video_JS/video/)
 
 ##Datos Adicionales
 ----------------------------------------
