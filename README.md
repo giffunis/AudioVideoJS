@@ -56,9 +56,10 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 
 * Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
 ```
-var inicio;
+var audioElm, inicio;
 function initialize () {
   //Asignacion de su valor a cada variable
+  audioElm = document.getElementById("audio1");
   inicio = document.getElementById("iniciar");
 
   //EventListeners
@@ -113,8 +114,8 @@ Además de esta se le han añadido otras propiedadades como de posición que se 
 var audioElm, inicio, playbutton;
 function initialize () {
   //Asignacion de su valor a cada variable
-  inicio = document.getElementById("iniciar");
   audioElm = document.getElementById("audio1");
+  inicio = document.getElementById("iniciar");
   playbutton = document.getElementById('playbutton');
 
   //EventListeners
@@ -289,8 +290,193 @@ function mutear (){
 
 Esta función comprueba si el elemento está muteado accediendo a la propiedad muted del audio. Si lo está, cambia su valor a false, de forma que ya no queda muteado el audio y cambia la imagen del botón a una que indique que el audio está sonando. En caso de que no esté muteado, lo mutea y cambia la imagen del botón por una que indique que el audio no tiene sonido.
 
-#### 
+#### Barra de progreso 1
 
+En este apartado se crerá una barra de progreso nos servirá para adelantar o atrasar el vídeo a la posición que deseemos.
+
+1. Añadimos la barra de progreso dentro del div controles:
+
+```
+<input id="navbar" type="range" min="0" max="100" value="0" step="1">
+```
+* min y max hacen referencia a los valores máximos y mínimos de la barra de progreso.
+* value indica dónde estará inicialmente el puntero que indica el tiempo actual del video. En este caso estará al principio.
+* step indica de cuánto en cuánto irá aumentando el puntero.
+
+2. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+```
+var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  mute = document.getElementById("mute");
+  navbar = document.getElementById("navbar");
+
+  //EventListeners
+  ...
+  navbar.addEventListener("change",audioBar,false);
+  navbar.addEventListener("mousedown", md);
+  navbar.addEventListener("mouseup", mu);
+```
+Necesitaremos 3 EventListeners para que la barra funcione de forma correcta.
+* navbar.addEventListener("change",audioBar,false): cuando la barra de progreso esté cambiando se ejecuta la función audioBAr.
+* navbar.addEventListener("mousedown", md): cuando el ratón este clickeado sobre la barra se ejecuta la función md.
+* navbar.addEventListener("mouseup", mu): cuando el ratón deje de estar clickeado sobre la barra se ejecutará la función mu.
+
+* Definimos la función audioBar():
+```
+function audioBar() {
+   var navbarto = audioElm.duration * (navbar.value / 100);
+   audioElm.currentTime = navbarto;
+ }
+```
+Básicamente lo que estamos haciendo en esta función es que al mover la barra de navegación el audio se sitúe en ese punto.
+
+
+audioElm.duration nos da la duración total del vídeo. Es una propiedad ya definida en JavaScript.
+
+* Definimos la la función md():
+```
+function md (){
+	audioElm.pause();
+}
+```
+Esta función pausa la reproducción cuando se ha clickeado sobre la barra de progreso para adelantar o atrasar el audio.
+
+* Definimos la la función mu():
+```
+function mu () {
+	audioElm.play();
+}
+```
+Esta función inicia la reproducción cuando se ha dejado de clickear sobre la barra de progreso.
+
+#### Barra de progreso 2
+
+En este apartado se hará que la barra de progreso que se realizó en el apartado anterior vaya avanzando a medida que se va reproduciendo el audio.
+
+1. Creamos un EventListener que llama a la función actualizarTiempo cada vez que el tiempo del audio cambie.
+```
+function initialize () {
+  ....
+
+  //EventListeners
+  ....
+  audioElm.addEventListener("timeupdate", actualizarTiempo);
+}
+```
+
+2. Definimos la función actualizarTiempo():
+
+```
+function actualizarTiempo() {
+  var new_time = audioElm.currentTime * (100 / audioElm.duration);
+  navbar.value = new_time;
+}
+```
+Esta función obtiene el tiempo actual del audio y se lo asigna a la barra de  progreso.
+
+#### Mostrar duración y tiempo actual del audio
+
+1. Modificamos el html y añadimos la zona donde queremos que se muestren los datos de duración y tiempo. Esto lo haremos añadiendo etiquetas span a nuestro div controles:
+```
+<span id="tiempoActual">00:00</span>   /    <span id="duracion">00:00</span>
+```
+
+2. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+
+```
+var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, tiempoActual, duracion;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  tiempoActual = document.getElementById("tiempoActual");
+  duracion = document.getElementById("duracion");
+
+
+  //EventListeners
+  ...
+  audioElm.addEventListener("timeupdate", actualizarTiempo);
+}
+```
+Utilizaremos la función actualizarTiempo definida en el apartado anterior.
+
+* Ampliación de la función actualizarTiempo():
+```
+unction actualizarTiempo() {
+  var new_time = audioElm.currentTime * (100 / audioElm.duration);
+  navbar.value = new_time;
+  var minActual = Math.floor(audioElm.currentTime / 60);
+  var secActual = Math.floor(audioElm.currentTime - minActual * 60);
+  var minDuracion = Math.floor(audioElm.duration / 60);
+  var secDuracion = Math.floor(audioElm.duration - minDuracion * 60);
+  if (secActual < 10){
+    secActual = "0" + secActual;
+  }
+  if(minActual < 10){
+    minActual = "0" + minActual;
+  }
+  if(secDuracion < 10){
+    secDuracion = "0" + secDuracion;
+  }
+  if(minDuracion < 10){
+    minDuracion = "0" + minDuracion;
+  }
+  tiempoActual.innerHTML = minActual+":"+secActual;
+  duracion.innerHTML = minDuracion+":"+secDuracion;
+}
+```
+* minActual almacena los minutos reproducidos del vídeo.
+* secActual almacena los segundos reproducidos del vídeo.
+* minduración almacena los minutos totales del vídeo.
+* secDuracion almacena los segundos totales del vídeo.
+* En los ifs lo que se hace es que cada se añada un 0 delante si los minutos o segundos correspondientes son menor que 0, de esta forma en vez de aparecernos en este formato: 9:15, 3:4 ... nos aparecerá lo siguiente: 09:15, 03:04 ...
+* En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
+
+
+#### Barra de volumen
+
+1. Añadimos la barra de volumen dentro del div controles:
+```
+<input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
+```
+La barra es igual que la de progreso con la diferencia de que el valor inicial es igual a 100. Por lo tanto el vídeo comienza con el volumen al máximo.
+
+2. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+
+```
+var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, tiempoActual, duracion, volumenbar;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  volumenbar = document.getElementById("volumenbar");
+  tiempoActual = document.getElementById("tiempoActual");
+  duracion = document.getElementById("duracion");
+
+
+  //EventListeners
+  ...
+  audioElm.addEventListener("timeupdate", actualizarTiempo);
+  volumenbar.addEventListener("mousemove", volumen_set);
+}
+```
+volumenbar.addEventListener("mousemove", volumen_set): cuando se mueva el raton sobre la barra de navegación se ejecutará la función volumen_set().
+
+* Definimos la función volumen_set():
+```
+function volumen_set () {
+  audioElm.volume = volumenbar.value / 100;
+}
+```
 
 ##Reproductor de vídeo
 
