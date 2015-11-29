@@ -74,3 +74,23 @@
 #duracion{
   margin-right:1%;
 }
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #F0BE61;
+	  border:#666 1px solid;
+    height:4px;
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-left:1%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #F2F2F2;
+    border:#666 1px solid;
+    height:13px;
+    width:10%;
+	  border-radius:100%;
+	  cursor:pointer;
+}
