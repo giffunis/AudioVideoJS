@@ -21,11 +21,11 @@ function initialize () {
   masvel.addEventListener("click",aumentarVel);
   menosvel.addEventListener("click",disminuirVel);
   mute.addEventListener("click",mutear);
-  navbar.addEventListener("mousedown", function(event){ seeking = true; audioElm.pause(); seek(event); });
-  navbar.addEventListener("mousemove", function(event){ seek(event); });
-  navbar.addEventListener("mouseup", function(){ seeking = false; audioElm.play(); });
+  navbar.addEventListener("change",audioBar,false);
+  navbar.addEventListener("mousedown", md);
+	navbar.addEventListener("mouseup", mu);
   volumenbar.addEventListener("mousemove", volumen_set);
-  audioElm.addEventListener("timeupdate", function() { actualizarTiempo(); })
+  audioElm.addEventListener("timeupdate", actualizarTiempo);
 }
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
@@ -75,17 +75,16 @@ function mutear (){
 	}
 }
 
+function audioBar() {
+   var navbarto = audioElm.duration * (navbar.value / 100);
+   audioElm.currentTime = navbarto;
+ }
+
 function volumen_set () {
   audioElm.volume = volumenbar.value / 100;
 }
 
-function seek(event) {
-  if(seeking){
-    navbar.value = event.clientX - navbar.offsetLeft;
-    var seekto = audioElm.duration * (navbar.value / 100);
-    audioElm.currentTime = seekto;
-  }
-}
+
 
 function actualizarTiempo() {
   var new_time = audioElm.currentTime * (100 / audioElm.duration);
@@ -109,4 +108,12 @@ function actualizarTiempo() {
   tiempoActual.innerHTML = minActual+":"+secActual;
   duracion.innerHTML = minDuracion+":"+secDuracion;
 
+}
+
+function md (){
+	audioElm.pause();
+}
+
+function mu () {
+	audioElm.play();
 }

@@ -29,13 +29,6 @@ function initialize(){
 }
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
-function md (){
-	vid.pause();
-}
-
-function mu () {
-	vid.play();
-}
 
 function playPause(){
 	if(vid.paused){
@@ -100,4 +93,12 @@ function pantallaCompleta(){
 	else if (vid.mozRequestFullScreen) {
 		vid.mozRequestFullScreen();
 	}
+}
+
+function md (){
+	vid.pause();
+}
+
+function mu () {
+	vid.play();
 }
