@@ -30,6 +30,7 @@ function initialize(){
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
 
+//Función que inicia y pausa el vídeo
 function playPause(){
 	if(vid.paused){
 		vid.play();
@@ -40,11 +41,13 @@ function playPause(){
 	}
 }
 
+//función que permite adelantar o atrasar el vídeo mediante la barra de progreso
 function vidBar(){
 	var navbarto = vid.duration * (navbar.value / 100);
 	vid.currentTime = navbarto;
 }
 
+//funcuón que actualiza la barra de progreso a medida que  avanza el vídeo y muestra el tiempo atcual y total del vídeo
 function actualiza_navbar(){
 	var new_time = vid.currentTime * (100 / vid.duration);
 	navbar.value = new_time;
@@ -69,6 +72,7 @@ function actualiza_navbar(){
 	duracion.innerHTML = minDuracion+":"+secDuracion;
 }
 
+//función que mutea y desmutea el vídeo
 function vidmute(){
 	if(vid.muted){
 		vid.muted = false;
@@ -79,10 +83,12 @@ function vidmute(){
 	}
 }
 
+//función que actualiza el volumen del vídeo
 function volumen_set(){
 	vid.volume = volumenbar.value / 100;
 }
 
+//función que permite ver el vídeo en pantalla completa
 function pantallaCompleta(){
 	if(vid.requestFullScreen){
 		vid.requestFullScreen();
@@ -95,10 +101,12 @@ function pantallaCompleta(){
 	}
 }
 
+//función que pausa el vídeo
 function md (){
 	vid.pause();
 }
 
+//función que reproduce el vídeo
 function mu () {
 	vid.play();
 }

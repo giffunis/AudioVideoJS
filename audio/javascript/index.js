@@ -1,5 +1,5 @@
 //Definición de Variables
-var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, volumenbar, seeking,  tiempoActual, duracion;
+var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, volumenbar, tiempoActual, duracion;
 
 function initialize () {
   //Asignacion de su valor a cada variable
@@ -13,7 +13,6 @@ function initialize () {
   volumenbar = document.getElementById("volumenbar");
   tiempoActual = document.getElementById("tiempoActual");
   duracion = document.getElementById("duracion");
-
 
   //EventListeners
   inicio.addEventListener("click",iniciar);
@@ -30,13 +29,15 @@ function initialize () {
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
 
+//función que obtiene el fichero del campo de texto, se lo asigna al elemento de audio e inicia la reproducción
 function iniciar () {
   if (audioElm.paused == true) {
-    // Get file from text box and assign it to the source of the audio element
     audioElm.src = document.getElementById('audioFile').value;
     audioElm.play();
   }
 }
+
+//Función que inicia y pausa el audio
 function playPausa() {
   if (document.getElementById("audio1")) {
     if (audioElm.paused) {
@@ -65,6 +66,7 @@ function disminuirVel() {
   }
 }
 
+//función que mutea y desmutea el audio
 function mutear (){
   if(audioElm.muted){
 		audioElm.muted = false;
@@ -75,20 +77,23 @@ function mutear (){
 	}
 }
 
+//función que permite adelantar o atrasar el audio mediante la barra de progreso
 function audioBar() {
    var navbarto = audioElm.duration * (navbar.value / 100);
    audioElm.currentTime = navbarto;
  }
 
+ //función que actualiza el volumen del audio
 function volumen_set () {
   audioElm.volume = volumenbar.value / 100;
 }
 
 
-
+//funcuón que actualiza la barra de progreso a medida que  avanza el audio y muestra el tiempo atcual y total del audio
 function actualizarTiempo() {
   var new_time = audioElm.currentTime * (100 / audioElm.duration);
   navbar.value = new_time;
+  // Aqui empieza el codigo para mostrar el tiempo actual del audio y su duración
   var minActual = Math.floor(audioElm.currentTime / 60);
   var secActual = Math.floor(audioElm.currentTime - minActual * 60);
   var minDuracion = Math.floor(audioElm.duration / 60);
@@ -110,10 +115,12 @@ function actualizarTiempo() {
 
 }
 
+//función que pausa el audio
 function md (){
 	audioElm.pause();
 }
 
+//función que reproduce el audio
 function mu () {
 	audioElm.play();
 }
