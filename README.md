@@ -557,27 +557,59 @@ La razon de tantas comprobaciones, es que dependiendo del navegador y la versió
 ##Enlaces utilizados
 
 [Audio/Video DOM Reference](http://www.w3schools.com/tags/ref_av_dom.asp)
+
+
 [MDN Introducción](https://developer.mozilla.org/es/docs/Web/HTML/Usando_audio_y_video_con_HTML5)
+
+
 [MSDN Audio](https://msdn.microsoft.com/es-es/library/gg589489%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
+
+
 [MSDN Vídeo](https://msdn.microsoft.com/es-es/library/hh924823(v=vs.85).aspx)
+
+
 [Audio You Tube](https://www.youtube.com/watch?v=s7-uYXJOtyc)
 
 * Tutotrial de Vídeo You Tube
 [Parte 1](https://www.youtube.com/watch?v=V8_wEZD160g)
+
+
 [Parte 2](https://www.youtube.com/watch?v=Nnlb6vwszl4)
+
+
 [Parte 3](https://www.youtube.com/watch?v=KhvOFA9v_-Y)
+
+
 [Parte 4](https://www.youtube.com/watch?v=2AI_gfMumrw)
+
+
 [Parte 5](https://www.youtube.com/watch?v=BuaIDNu_pPg)
+
+
 [Parte 6](https://www.youtube.com/watch?v=rIX7xSBPK08)
 
 * Tutorial de Audio You Tube
 [Parte 1](https://www.youtube.com/watch?v=hsSXzdn_0Gg)
+
+
 [Parte 2](https://www.youtube.com/watch?v=L5rnkFNSnE8)
+
+
 [Parte 3](https://www.youtube.com/watch?v=uxOnTwUNxl8)
+
+
 [Parte 4](https://www.youtube.com/watch?v=jACx3PZ2_CA)
+
+
 [Parte 5](https://www.youtube.com/watch?v=ozR1kVoj7P4)
+
+
 [Parte 6](https://www.youtube.com/watch?v=eETHE3VHdcU)
+
+
 [Parte 7](https://www.youtube.com/watch?v=UUiFO9MZS_A)
+
+
 [Parte 8](https://www.youtube.com/watch?v=fMEZhu8wAmY)
 
 ##Enlaces a los reproductores
