@@ -29,21 +29,14 @@ function initialize(){
 }
 
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
-function md (){
-	vid.pause();
-}
-
-function mu () {
-	vid.play();
-}
 
 function playPause(){
 	if(vid.paused){
 		vid.play();
-		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png")';
+		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png") no-repeat';
 	} else {
 		vid.pause();
-		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png")';
+		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png") no-repeat';
 	}
 }
 
@@ -79,10 +72,10 @@ function actualiza_navbar(){
 function vidmute(){
 	if(vid.muted){
 		vid.muted = false;
-		mutebtn.style.background = 'url("http://www.academia.org.mx/aml_static/dm2/style/icon/soundOn.png")';
+		mutebtn.style.background = 'url("http://www.academia.org.mx/aml_static/dm2/style/icon/soundOn.png") no-repeat';
 	} else {
 		vid.muted = true;
-		mutebtn.style.background = 'url("http://epresskitz.com/images/mute_icon.png")';
+		mutebtn.style.background = 'url("http://epresskitz.com/images/mute_icon.png") no-repeat';
 	}
 }
 
@@ -100,4 +93,12 @@ function pantallaCompleta(){
 	else if (vid.mozRequestFullScreen) {
 		vid.mozRequestFullScreen();
 	}
+}
+
+function md (){
+	vid.pause();
+}
+
+function mu () {
+	vid.play();
 }
