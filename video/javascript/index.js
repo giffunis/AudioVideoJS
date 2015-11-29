@@ -2,7 +2,7 @@
 
 var vid, btn, navbar, tiempoActual, duracion, mutebtn, volumenbar, pantcompl;
 
-function intialize(){
+function initialize(){
 
 	//Referenciando las variables
 
@@ -20,29 +20,34 @@ function intialize(){
 	btn.addEventListener("click",playPause,false);
 	navbar.addEventListener("change",vidBar,false);
 	vid.addEventListener("timeupdate",actualiza_navbar,false);
+	navbar.addEventListener("mousedown", md);
+	navbar.addEventListener("mouseup", mu);
 	mutebtn.addEventListener("click",vidmute,false);
 	volumenbar.addEventListener("change",volumen_set,false);
 	pantcompl.addEventListener("click",pantallaCompleta,false);
 
 }
 
-window.onload = intialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
+window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
 
+//Función que inicia y pausa el vídeo
 function playPause(){
 	if(vid.paused){
 		vid.play();
-		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png")';
+		btn.style.background = 'url("http://www.kelliyounglove.com/site/templates/img/audio-pause.png") no-repeat';
 	} else {
 		vid.pause();
-		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png")';
+		btn.style.background = 'url("https://s3.amazonaws.com/online.fliphtml5.com/book/template/Handy/style/icon/autoPlay.png") no-repeat';
 	}
 }
 
+//función que permite adelantar o atrasar el vídeo mediante la barra de progreso
 function vidBar(){
 	var navbarto = vid.duration * (navbar.value / 100);
 	vid.currentTime = navbarto;
 }
 
+//funcuón que actualiza la barra de progreso a medida que  avanza el vídeo y muestra el tiempo atcual y total del vídeo
 function actualiza_navbar(){
 	var new_time = vid.currentTime * (100 / vid.duration);
 	navbar.value = new_time;
@@ -67,20 +72,23 @@ function actualiza_navbar(){
 	duracion.innerHTML = minDuracion+":"+secDuracion;
 }
 
+//función que mutea y desmutea el vídeo
 function vidmute(){
 	if(vid.muted){
 		vid.muted = false;
-		mutebtn.style.background = 'url("http://www.academia.org.mx/aml_static/dm2/style/icon/soundOn.png")';
+		mutebtn.style.background = 'url("http://www.academia.org.mx/aml_static/dm2/style/icon/soundOn.png") no-repeat';
 	} else {
 		vid.muted = true;
-		mutebtn.style.background = 'url("http://epresskitz.com/images/mute_icon.png")';
+		mutebtn.style.background = 'url("http://epresskitz.com/images/mute_icon.png") no-repeat';
 	}
 }
 
+//función que actualiza el volumen del vídeo
 function volumen_set(){
 	vid.volume = volumenbar.value / 100;
 }
 
+//función que permite ver el vídeo en pantalla completa
 function pantallaCompleta(){
 	if(vid.requestFullScreen){
 		vid.requestFullScreen();
@@ -91,4 +99,14 @@ function pantallaCompleta(){
 	else if (vid.mozRequestFullScreen) {
 		vid.mozRequestFullScreen();
 	}
+}
+
+//función que pausa el vídeo
+function md (){
+	vid.pause();
+}
+
+//función que reproduce el vídeo
+function mu () {
+	vid.play();
 }

@@ -1,22 +1,76 @@
-
-div {
-  width: 500px;
-  height: 500px;
-  /*border: 3px double grey;*/
-  margin-left:300px;
-  margin-top: 25px;
+#main {
+  width: 37%;
+  height: 45%;
+  margin-left:23%;
+  margin-top: 3%;
 }
 
-.val {
-  width: 450px;
+#controles {
+  background-color: #C0C0C0;
 }
 
-
-audio {
-  width: 500px;
+#fichero {
+  width: 45%;
+  margin-left:23%;
+  margin-top: 3%;
 }
 
-img {
-  width: 500px;
-  height: 400px;
+#playbutton{
+  background:url("http://mannyzone.com/images/pause.png" ) no-repeat;
+	border:none;
+	width:4%;
+	height:18px;
+	cursor:pointer;
+	margin-top:1%;
+  margin-left:1%;
+  margin-right:1%;
+}
+
+#playbutton:hover{ opacity:0.9; }
+
+#mute{
+  background:url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png" );
+	border:none;
+	width:4%;
+	height:18px;
+	cursor:pointer;
+	margin-top:1%;
+  margin-left:1%;
+  margin-right:1%;
+}
+
+#mute:hover{ opacity:0.9; }
+
+#masvel{
+  background:url("../fotos/fast_forward.png" );
+	border:none;
+	width:4%;
+	height:18px;
+	cursor:pointer;
+	margin-top:1%;
+  margin-left:1%;
+  margin-right:1%;
+}
+
+#masvel:hover{ opacity:0.9; }
+
+#menosvel{
+  background:url("../fotos/rewind.png" );
+	border:none;
+	width:4%;
+	height:18px;
+	cursor:pointer;
+	margin-top:1%;
+  margin-left:1%;
+  margin-right:1%;
+}
+
+#menosvel:hover{ opacity:0.9; }
+
+#tiempoActual{
+  margin-left:1%;
+}
+
+#duracion{
+  margin-right:1%;
 }
