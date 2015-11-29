@@ -54,7 +54,7 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 2. Le damos funcionalidad al botón "Cargar audio". Para ello usamos JavaScript (fichero index.js).
 
 
-* Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
+* Definimos las variables que vamos a utilizar y creamos la función initialize, donde asignaremos los valores a las variables y definiremos los EventListeners.
 ```
 var audioElm, inicio;
 function initialize () {
@@ -68,7 +68,7 @@ function initialize () {
 ```
 inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
 
-* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
+* Indicamos que la función initialize se ejecutará cuando se haya cargado la ventana.
 
 ```
 window.onload = initialize;
@@ -125,7 +125,7 @@ function initialize () {
 ```
 playbutton.addEventListener("click",playPausa): cuando se haga click en el botón con id playbutton se ejecutará la función playPausa, que definiremos a continuación.
 
-* Definimos la la funcion playPausa():
+* Definiendo la función playPausa():
 ```
 function playPausa() {
   if (document.getElementById("audio1")) {
@@ -140,14 +140,13 @@ function playPausa() {
   }
 }
 ```
-Esta funcuón comprueba si existe un elemento de audio. Si lo hay comprueba si esta pausado o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
+Esta función comprueba si existe un elemento de audio. Si lo hay comprueba si está pausado o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
 
-
-audioElm.paused  devuelve true si el audio está pausado y false si no lo está.
+audioElm.paused devuelve true si el audio está pausado y false si no lo está.
 
 ####Disminuir velocidad
 
-1.  Añadimos el botón que se encargará de disminuir la velocidad del vídeo dentro del div controles.
+1.  Añadimos el botón que se encargará de disminuir la velocidad del video dentro del div controles.
 
 ```
 <button id="menosvel"></button>
@@ -164,7 +163,7 @@ audioElm.paused  devuelve true si el audio está pausado y false si no lo está.
 3. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 
 ```
 var audioElm, inicio, playbutton, masvel, menosvel;
@@ -180,7 +179,7 @@ function initialize () {
   menosvel.addEventListener("click",disminuirVel);
 }
 ```
-* Definimos la la funcion disminuirVel():
+* Definimos la función disminuirVel():
 
 ```
 function disminuirVel() {
@@ -197,7 +196,7 @@ Esta función comprueba si la velodidad del audio es menor o igual que uno, si l
 
 #### Aumentar velocidad
 
-1.  Añadimos el botón que se encargará de acelerar el vídeo dentro del div controles.
+1.  Añadimos el botón que se encargará de acelerar el video dentro del div controles.
 
 ```
 <button id="masvel"></button>
@@ -214,7 +213,7 @@ Esta función comprueba si la velodidad del audio es menor o igual que uno, si l
 3. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 
 ```
 var audioElm, inicio, playbutton, masvel;
@@ -230,7 +229,7 @@ function initialize () {
   masvel.addEventListener("click",aumentarVel);
 }
 ```
-* Definimos la la función aumentarVel():
+* Definimos la función aumentarVel():
 
 ```
 function aumentarVel() {
@@ -238,7 +237,7 @@ function aumentarVel() {
 }
 ```
 
-Esta funcion accede a la propiedad playbackRate del elemento de audio, que es el que hace referencia a la velocidad del vídeo y la aumenta en 1.
+Esta función accede a la propiedad playbackRate del elemento de audio, que es el que hace referencia a la velocidad del vídeo y la aumenta en 1.
 
 #### Mutear audio
 
@@ -258,7 +257,7 @@ Esta funcion accede a la propiedad playbackRate del elemento de audio, que es el
 3. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 ```
 var audioElm, inicio, playbutton, masvel, menosvel, mute;
 function initialize () {
@@ -277,7 +276,7 @@ function initialize () {
 
 ```
 
-* Definimos la la función mutear():
+* Definimos la función mutear():
 
 ```
 function mutear (){
@@ -295,7 +294,7 @@ Esta función comprueba si el elemento está muteado accediendo a la propiedad m
 
 #### Barra de progreso 1
 
-En este apartado se crerá una barra de progreso nos servirá para adelantar o atrasar el vídeo a la posición que deseemos.
+En este apartado se creará una barra de progreso que nos servirá para adelantar o atrasar el vídeo a la posición que deseemos.
 
 1. Añadimos la barra de progreso dentro del div controles:
 
@@ -309,7 +308,7 @@ En este apartado se crerá una barra de progreso nos servirá para adelantar o a
 2. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 ```
 var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar;
 function initialize () {
@@ -326,8 +325,8 @@ function initialize () {
 ```
 Necesitaremos 3 EventListeners para que la barra funcione de forma correcta.
 * navbar.addEventListener("change",audioBar,false): cuando la barra de progreso esté cambiando se ejecuta la función audioBAr.
-* navbar.addEventListener("mousedown", md): cuando el ratón este clickeado sobre la barra se ejecuta la función md.
-* navbar.addEventListener("mouseup", mu): cuando el ratón deje de estar clickeado sobre la barra se ejecutará la función mu.
+* navbar.addEventListener("mousedown", md): cuando el ratón este clickeado sobre la barra, se ejecuta la función md.
+* navbar.addEventListener("mouseup", mu): cuando el ratón deje de estar clickeado sobre la barra, se ejecutará la función mu.
 
 * Definimos la función audioBar():
 ```
@@ -337,7 +336,6 @@ function audioBar() {
  }
 ```
 Básicamente lo que estamos haciendo en esta función es que al mover la barra de navegación el audio se sitúe en ese punto.
-
 
 audioElm.duration nos da la duración total del vídeo. Es una propiedad ya definida en JavaScript.
 
@@ -349,7 +347,7 @@ function md (){
 ```
 Esta función pausa la reproducción cuando se ha clickeado sobre la barra de progreso para adelantar o atrasar el audio.
 
-* Definimos la la función mu():
+* Definimos la función mu():
 ```
 function mu () {
 	audioElm.play();
@@ -380,7 +378,7 @@ function actualizarTiempo() {
   navbar.value = new_time;
 }
 ```
-Esta función obtiene el tiempo actual del audio y se lo asigna a la barra de  progreso.
+Esta función obtiene el tiempo actual del audio y se lo asigna a la barra de progreso.
 
 #### Mostrar duración y tiempo actual del audio
 
@@ -392,7 +390,7 @@ Esta función obtiene el tiempo actual del audio y se lo asigna a la barra de  p
 2. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 
 ```
 var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, tiempoActual, duracion;
@@ -439,7 +437,7 @@ unction actualizarTiempo() {
 * secActual almacena los segundos reproducidos del vídeo.
 * minduración almacena los minutos totales del vídeo.
 * secDuracion almacena los segundos totales del vídeo.
-* En los ifs lo que se hace es que cada se añada un 0 delante si los minutos o segundos correspondientes son menor que 0, de esta forma en vez de aparecernos en este formato: 9:15, 3:4 ... nos aparecerá lo siguiente: 09:15, 03:04 ...
+* En los ifs lo que se hace es que se añada un 0 delante si los minutos o segundos correspondientes son menor que 0, de esta forma en vez de aparecernos en este formato: 9:15, 3:4 ... nos aparecerá lo siguiente: 09:15, 03:04 ...
 * En las dos últimas líneas se modifica el HTML para que se vayan actualizando los datos.
 
 
@@ -454,7 +452,7 @@ La barra es igual que la de progreso con la diferencia de que el valor inicial e
 2. Le damos funcionalidad al botón usando JavaScript.
 
 * Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Le asignamos su valor y su EventListener correspondiente dentro de la función initialize.
 
 ```
 var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, tiempoActual, duracion, volumenbar;
@@ -484,7 +482,7 @@ function volumen_set () {
 
 ##Reproductor de vídeo
 
-En este apartado se explicará como crear y personalizar un reproductor de vídeo en una página web. Las funciones son muy similares, y en muchos casos iguales que a las del reproductor de auido, por tanto explicaremos aquellas cosas que son diferentes.
+En este apartado se explicará como crear y personalizar un reproductor de vídeo en una página web. Las funciones son muy similares, y en muchos casos iguales que a las del reproductor de auido, por lo tanto explicaremos aquellas cosas que son diferentes.
 
 
 ####Funciones idénticas al audio
@@ -500,7 +498,7 @@ A continuación se muestra una lista de funciones que son iguales tanto en el re
 
 #### Pantalla completa
 
-Partiendo del mismo HTML que el del audio, creamos un nuevo boton HTML en el div de controles:
+Partiendo del mismo HTML que el del audio, creamos un nuevo botón HTML en el div controles:
 
 ```
 <button id="pantcompl">[ &nbsp; ]</button>
@@ -539,16 +537,16 @@ function pantallaCompleta(){
 	}
 }
 ```
-La razon de tantas comprobaciones, es que dependiendo del navegador y la versión que tengamos la propiedad de pantalla completa es diferente.
+La razón de tantas comprobaciones, es que dependiendo del navegador y la versión que tengamos la propiedad de pantalla completa es diferente.
 
 ## Información extra:
 
-* Si se añade controls o controls="controls en la etiqueta video o audio, se pondrán los controles por defecto de HTML".
+* Si se añade controls o controls="controls" en la etiqueta video o audio, se pondrán los controles por defecto de HTML".
 ```
 <video id="mi_video" controls></video>
 <video id="mi_video" controls="controls"></video>
 ```
-* Si se añade autoplay en la etiqueta video o audio , se reproducirá automáticamente al cargar la página.
+* Si se añade autoplay en la etiqueta video o audio, se reproducirá automáticamente al cargar la página.
 ```
 <video id="mi_video" autoplay></video>
 ```
