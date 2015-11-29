@@ -67,12 +67,17 @@ function initialize () {
 ```
 inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
 
+* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
+
+```
+window.onload = initialize;
+```
+
 * Definimos la función iniciar():
 
 ```
 function iniciar () {
   if (audioElm.paused == true) {
-    // Get file from text box and assign it to the source of the audio element
     audioElm.src = document.getElementById('audioFile').value;
     audioElm.play();
   }
@@ -80,7 +85,7 @@ function iniciar () {
 ```
 En esta función se coge el audio introducido en el area de texto y se asigna al elemento de audio. A continuación se inicia la reproducción.
 
-###### Ahora ya podemos cargar un audio desde local #####
+###### ¡Ahora ya podemos cargar un audio desde local! #####
 
 #### Play/pausa
 1. Añadimos el botón que se encargará de parar y pausar el vídeo dentro del div controles.
@@ -119,11 +124,6 @@ function initialize () {
 ```
 playbutton.addEventListener("click",playPausa): cuando se haga click en el botón con id playbutton se ejecutará la función playPausa, que definiremos a continuación.
 
-* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
-
-```
-window.onload = initialize;
-```
 * Definimos la la funcion playPausa():
 ```
 function playPausa() {
@@ -140,6 +140,156 @@ function playPausa() {
 }
 ```
 Esta funcuón comprueba si existe un elemento de audio. Si lo hay comprueba si esta pausado o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
+
+####Disminuir velocidad
+
+1.  Añadimos el botón que se encargará de disminuir la velocidad del vídeo dentro del div controles.
+
+```
+<button id="menosvel"></button>
+```
+
+2.  Añadimos al css un icono para que se muestre como botón.
+```
+#menosvel{
+  background:url("../fotos/rewind.png" );
+  ...
+}
+```
+
+3. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+
+```
+var audioElm, inicio, playbutton, masvel, menosvel;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  playbutton = document.getElementById('playbutton');
+  menosvel = document.getElementById("menosvel");
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+  playbutton.addEventListener("click",playPausa);
+  menosvel.addEventListener("click",disminuirVel);
+}
+```
+* Definimos la la funcion disminuirVel():
+
+```
+function disminuirVel() {
+  if (audioElm.playbackRate <= 1) {
+    var temp = audioElm.playbackRate;
+    audioElm.playbackRate = (temp / 2);
+  } else {
+    audioElm.playbackRate -= 1;
+  }
+}
+```
+
+Esta función comprueba si la velodidad del audio es menor o igual que uno, si lo es divide la velocidad del audio en dos y si no lo es le resta uno. Esta comprobación se hace para que no se le reste uno si la velocidad es menor o igual que uno ya que se pararía el audio o quedaría una velocidad negativa.
+
+#### Aumentar velocidad
+
+1.  Añadimos el botón que se encargará de acelerar el vídeo dentro del div controles.
+
+```
+<button id="masvel"></button>
+```
+
+2.  Añadimos al css un icono para que se muestre como botón.
+```
+#masvel{
+  background:url("../fotos/fast_forward.png" );
+  ...
+}
+```
+
+3. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+
+```
+var audioElm, inicio, playbutton, masvel;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  menosvel = document.getElementById("menosvel");
+  masvel = document.getElementById("masvel");
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+  playbutton.addEventListener("click",playPausa);
+  masvel.addEventListener("click",aumentarVel);
+}
+```
+* Definimos la la función aumentarVel():
+
+```
+function aumentarVel() {
+  audioElm.playbackRate += 1;
+}
+```
+
+Esta funcion accede a la propiedad playbackRate del elemento de audio, que es el que hace referencia a la velocidad del vídeo y la aumenta en 1.
+
+#### Mutear audio
+
+1.  Añadimos el botón que se encargará de mutear el vídeo dentro del div controles.
+```
+<button id="mute">
+```
+
+2. Añadimos al css un icono para que se muestre como botón.
+```
+#mute{
+  background:url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png" );
+  ...
+}
+```
+
+3. Le damos funcionalidad al botón usando JavaScript.
+
+* Definimos las variables que vamos a utilizar.
+* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+```
+var audioElm, inicio, playbutton, masvel, menosvel, mute;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  ...
+  masvel = document.getElementById("masvel");
+  menosvel = document.getElementById("menosvel");
+  mute = document.getElementById("mute");
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+  playbutton.addEventListener("click",playPausa);
+  masvel.addEventListener("click",aumentarVel);
+  menosvel.addEventListener("click",disminuirVel);
+  mute.addEventListener("click",mutear);
+
+```
+
+* Definimos la la función mutear():
+
+```
+function mutear (){
+  if(audioElm.muted){
+		audioElm.muted = false;
+    mute.style.background = 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png") no-repeat';
+	} else {
+		audioElm.muted = true;
+    mute.style.background = 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png") no-repeat';
+	}
+}
+```
+
+Esta función comprueba si el elemento está muteado accediendo a la propiedad muted del audio. Si lo está, cambia su valor a false, de forma que ya no queda muteado el audio y cambia la imagen del botón a una que indique que el audio está sonando. En caso de que no esté muteado, lo mutea y cambia la imagen del botón por una que indique que el audio no tiene sonido.
+
+#### 
 
 
 ##Reproductor de vídeo
