@@ -568,37 +568,26 @@ La razon de tantas comprobaciones, es que dependiendo del navegador y la versió
 
 * Tutotrial de Vídeo You Tube
 
-[Parte 1](https://www.youtube.com/watch?v=V8_wEZD160g)
+* [Parte 1](https://www.youtube.com/watch?v=V8_wEZD160g)
+* [Parte 2](https://www.youtube.com/watch?v=Nnlb6vwszl4)
+* [Parte 3](https://www.youtube.com/watch?v=KhvOFA9v_-Y)
+* [Parte 4](https://www.youtube.com/watch?v=2AI_gfMumrw)
+* [Parte 5](https://www.youtube.com/watch?v=BuaIDNu_pPg)
+* [Parte 6](https://www.youtube.com/watch?v=rIX7xSBPK08)
 
-[Parte 2](https://www.youtube.com/watch?v=Nnlb6vwszl4)
+Tutorial de Audio You Tube
 
-[Parte 3](https://www.youtube.com/watch?v=KhvOFA9v_-Y)
-
-[Parte 4](https://www.youtube.com/watch?v=2AI_gfMumrw)
-
-[Parte 5](https://www.youtube.com/watch?v=BuaIDNu_pPg)
-
-[Parte 6](https://www.youtube.com/watch?v=rIX7xSBPK08)
-
-* Tutorial de Audio You Tube
-
-[Parte 1](https://www.youtube.com/watch?v=hsSXzdn_0Gg)
-
-[Parte 2](https://www.youtube.com/watch?v=L5rnkFNSnE8)
-
-[Parte 3](https://www.youtube.com/watch?v=uxOnTwUNxl8)
-
-[Parte 4](https://www.youtube.com/watch?v=jACx3PZ2_CA)
-
-[Parte 5](https://www.youtube.com/watch?v=ozR1kVoj7P4)
-
-[Parte 6](https://www.youtube.com/watch?v=eETHE3VHdcU)
-
-[Parte 7](https://www.youtube.com/watch?v=UUiFO9MZS_A)
-
-[Parte 8](https://www.youtube.com/watch?v=fMEZhu8wAmY)
+* [Parte 1](https://www.youtube.com/watch?v=hsSXzdn_0Gg)
+* [Parte 2](https://www.youtube.com/watch?v=L5rnkFNSnE8)
+* [Parte 3](https://www.youtube.com/watch?v=uxOnTwUNxl8)
+* [Parte 4](https://www.youtube.com/watch?v=jACx3PZ2_CA)
+* [Parte 5](https://www.youtube.com/watch?v=ozR1kVoj7P4)
+* [Parte 6](https://www.youtube.com/watch?v=eETHE3VHdcU)
+* [Parte 7](https://www.youtube.com/watch?v=UUiFO9MZS_A)
+* [Parte 8](https://www.youtube.com/watch?v=fMEZhu8wAmY)
 
 ##Enlaces a los reproductores
+
 [Reproductor de audio](http://rebeccamartinez.github.io/Audio_Video_JS/audio/)
 
 [Reproductor de vídeo](http://rebeccamartinez.github.io/Audio_Video_JS/video/)
