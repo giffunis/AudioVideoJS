@@ -4,6 +4,11 @@
   color: #ccc;
 }
 
+#mi_video {
+  width: 550px;
+  height: 320px;
+}
+
 #contenedor{
   width: 40%;
   background: #000;

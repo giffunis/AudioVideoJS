@@ -4,7 +4,6 @@ var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, volumenbar, ti
 function initialize () {
   //Asignacion de su valor a cada variable
   audioElm = document.getElementById("audio1");
-  inicio = document.getElementById("iniciar");
   playbutton = document.getElementById('playbutton');
   masvel = document.getElementById("masvel");
   menosvel = document.getElementById("menosvel");
@@ -15,7 +14,6 @@ function initialize () {
   duracion = document.getElementById("duracion");
 
   //EventListeners
-  inicio.addEventListener("click",iniciar);
   playbutton.addEventListener("click",playPausa);
   masvel.addEventListener("click",aumentarVel);
   menosvel.addEventListener("click",disminuirVel);
@@ -30,27 +28,19 @@ function initialize () {
 window.onload = initialize; //Lo que hace esta línea es asegurar que el HTML está cargado completamente. Así nos ahorramos errores al llamar a los elementos del HTML.
 
 //función que obtiene el fichero del campo de texto, se lo asigna al elemento de audio e inicia la reproducción
-function iniciar () {
-  if (audioElm.paused == true) {
-    audioElm.src = document.getElementById('audioFile').value;
-    audioElm.play();
-  }
-}
+
 
 //Función que inicia y pausa el audio
 function playPausa() {
-  if (document.getElementById("audio1")) {
-    if (audioElm.paused) {
-      audioElm.play();
-      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
-    }
-      else {
-        audioElm.pause();
-        playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
-      }
+  if (audioElm.paused) {
+    audioElm.play();
+    playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
   }
+    else {
+      audioElm.pause();
+      playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
+    }
 }
-
 // Aumenta la velocidad del audio
 function aumentarVel() {
   audioElm.playbackRate += 1;
