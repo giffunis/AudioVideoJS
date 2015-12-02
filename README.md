@@ -1,4 +1,4 @@
-STW: Audio y Video en JavaScript
+Audio y Video en JavaScript
 ===================
 Presentación para la asignatura de Sistemas y Tecnologías Web en la que implementaremos funcionalidades de audio y video usando HTML y JavaScript.
 
@@ -19,74 +19,19 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
 </head>
 <body>
 <div id="main">
-   <div id="fichero">
-   </div>
    <img src="fotos/musica.jpg" alt="">
    <div id="controles">
    </div>
    <div>
-    <audio id="audio1" style="width:25%"></audio>
+    <audio id="audio1"></audio>
    </div>
  </div>
 </body>
 </html>
 ```
-* En el div fichero es donde cargaremos el fichero de audio que queremos que se reproduzca.
 * En el div controles iremos añadiendo los botones o elementos que se encargarán de controlar el vídeo.
 * La etiqueta audio es la que contendrá el archivo de audio que cargemos.
 
-#### Carga del fichero
-
-1. Añadimos el input y el botón que se encargarán cargar el audio seleccionado.
-
-```
-<body>
-  <div id="fichero">
-    <input type="text" id="audioFile" placeholder="audio.mp3" size="60" />
-    <button id="iniciar">Cargar audio</button>
-  </div>
-  <div id="main">
-    ...
-  </div>
-</body>
-```
-
-2. Le damos funcionalidad al botón "Cargar audio". Para ello usamos JavaScript (fichero index.js).
-
-
-* Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
-```
-var audioElm, inicio;
-function initialize () {
-  //Asignacion de su valor a cada variable
-  audioElm = document.getElementById("audio1");
-  inicio = document.getElementById("iniciar");
-
-  //EventListeners
-  inicio.addEventListener("click",iniciar);
-}
-```
-inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
-
-* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
-
-```
-window.onload = initialize;
-```
-
-* Definimos la función iniciar():
-
-```
-function iniciar () {
-  if (audioElm.paused == true) {
-    audioElm.src = document.getElementById('audioFile').value;
-    audioElm.play();
-  }
-}
-```
-En esta función se coge el audio introducido en el area de texto y se asigna al elemento de audio. A continuación se inicia la reproducción.
-
-###### ¡Ahora ya podemos cargar un audio desde local! #####
 
 #### Play/pausa
 1. Añadimos el botón que se encargará de parar y pausar el vídeo dentro del div controles.
@@ -104,11 +49,10 @@ En esta función se coge el audio introducido en el area de texto y se asigna al
 ```
 Además de esta se le han añadido otras propiedadades como de posición que se podrán ver en el archivo css correspondiente.
 
-3. Le damos funcionalidad al botón usando JavaScript.
+3. Le damos funcionalidad al botón "Cargar audio". Para ello usamos JavaScript (fichero index.js).
 
 
-* Definimos las variables que vamos a utilizar.
-* Le asiganamos su valor y su EventListener correspondiente dentro de la función initialize.
+* Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
 
 ```
 var audioElm, inicio, playbutton;
@@ -124,6 +68,12 @@ function initialize () {
 }
 ```
 playbutton.addEventListener("click",playPausa): cuando se haga click en el botón con id playbutton se ejecutará la función playPausa, que definiremos a continuación.
+
+* Indicamos que la funcion initialize se ejecutará cuando se haya cargado la ventana.
+
+```
+window.onload = initialize;
+```
 
 * Definimos la la funcion playPausa():
 ```
@@ -553,6 +503,52 @@ La razon de tantas comprobaciones, es que dependiendo del navegador y la versió
 <video id="mi_video" autoplay></video>
 ```
 
+#### Carga del fichero
+
+1. Añadimos el input y el botón que se encargarán cargar el audio seleccionado.
+
+```
+<body>
+  <div id="fichero">
+    <input type="text" id="audioFile" placeholder="audio.mp3" size="60" />
+    <button id="iniciar">Cargar audio</button>
+  </div>
+  <div id="main">
+    ...
+  </div>
+</body>
+```
+
+2. Le damos funcionalidad al botón "Cargar audio". Para ello usamos JavaScript (fichero index.js).
+
+* Definimos las variables que vamos a utilizar y creamos la funcion initialze, donde asignaremos los valores a las variables y definiremos los EventListeners.
+```
+var audioElm, inicio;
+function initialize () {
+  //Asignacion de su valor a cada variable
+  audioElm = document.getElementById("audio1");
+  inicio = document.getElementById("iniciar");
+
+  //EventListeners
+  inicio.addEventListener("click",iniciar);
+}
+```
+inicio.addEventListener("click",iniciar): cuando se haga click en el botón con id inicar se ejecutará la función iniciar, que definiremos a continuación.
+
+
+* Definimos la función iniciar():
+
+```
+function iniciar () {
+  if (audioElm.paused == true) {
+    audioElm.src = document.getElementById('audioFile').value;
+    audioElm.play();
+  }
+}
+```
+En esta función se coge el audio introducido en el area de texto y se asigna al elemento de audio. A continuación se inicia la reproducción.
+
+###### ¡Ahora ya podemos cargar un audio desde local! #####
 
 ##Enlaces utilizados
 
