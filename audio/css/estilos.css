@@ -26,7 +26,7 @@
   margin-right:1%;
 }
 
-#playbutton:hover{ opacity:0.9; }
+#playbutton:hover{ opacity:0.8; }
 
 #mute{
   background:url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png" );
@@ -39,7 +39,7 @@
   margin-right:1%;
 }
 
-#mute:hover{ opacity:0.9; }
+#mute:hover{ opacity:0.8; }
 
 #masvel{
   background:url("../fotos/fast_forward.png" );
@@ -52,7 +52,7 @@
   margin-right:1%;
 }
 
-#masvel:hover{ opacity:0.9; }
+#masvel:hover{ opacity:0.8; }
 
 #menosvel{
   background:url("../fotos/rewind.png" );
@@ -65,7 +65,7 @@
   margin-right:1%;
 }
 
-#menosvel:hover{ opacity:0.9; }
+#menosvel:hover{ opacity:0.8; }
 
 #tiempoActual{
   margin-left:1%;
@@ -73,4 +73,24 @@
 
 #duracion{
   margin-right:1%;
+}
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    background: #F0BE61;
+	  border:#666 1px solid;
+    height:4px;
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-left:1%;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #F2F2F2;
+    border:#666 1px solid;
+    height:13px;
+    width:10%;
+	  border-radius:100%;
+	  cursor:pointer;
 }
