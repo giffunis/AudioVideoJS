@@ -1,5 +1,5 @@
 //Definición de Variables
-var audioElm, inicio, playbutton, masvel, menosvel, mute, navbar, volumenbar, tiempoActual, duracion;
+var audioElm, playbutton, masvel, menosvel, mute, navbar, volumenbar, tiempoActual, duracion;
 
 function initialize () {
   //Asignacion de su valor a cada variable
