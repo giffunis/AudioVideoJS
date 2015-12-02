@@ -17,14 +17,14 @@ function initialize(){
 
 	//Añadiendo Listeners
 
-	btn.addEventListener("click",playPause,false);
-	navbar.addEventListener("change",vidBar,false);
-	vid.addEventListener("timeupdate",actualiza_navbar,false);
+	btn.addEventListener("click",playPause);
+	navbar.addEventListener("change",vidBar);
+	vid.addEventListener("timeupdate",actualiza_navbar);
 	navbar.addEventListener("mousedown", md);
 	navbar.addEventListener("mouseup", mu);
-	mutebtn.addEventListener("click",vidmute,false);
-	volumenbar.addEventListener("change",volumen_set,false);
-	pantcompl.addEventListener("click",pantallaCompleta,false);
+	mutebtn.addEventListener("click",vidmute);
+	volumenbar.addEventListener("change",volumen_set);
+	pantcompl.addEventListener("click",pantallaCompleta);
 
 }
 
