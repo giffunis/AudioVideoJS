@@ -7,10 +7,6 @@
    <script src="javascript/index.js" language="javascript" type="text/javascript"></script>
 </head>
 <body>
-<div id="fichero">
-  <input type="text" id="audioFile" placeholder="audio.mp3" size="60" />
-  <button id="iniciar">Cargar audio</button>
-</div>
 <div id="main">
    <img src="fotos/musica.jpg" alt="">
    <div id="controles">
@@ -23,7 +19,9 @@
      <input id="volumenbar" type="range" min="0" max="100" value="100" step="1">
    </div>
    <div>
-    <audio id="audio1" style="width:25%"></audio>
+    <audio id="audio1">
+      <source src="cancion/cancion1.mp3">
+    </audio>
    </div>
  </div>
 </body>
