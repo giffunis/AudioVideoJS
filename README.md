@@ -89,7 +89,7 @@ function playPausa() {
   }
 }
 ```
-Esta función si está pausado el video o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
+Esta función comprueba si está pausado el video o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
 
 audioElm.paused devuelve true si el audio está pausado y false si no lo está.
 
