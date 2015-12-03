@@ -24,6 +24,7 @@ En primer lugar se crea el fichero HTML en el que se va a trabajar (index.html):
    </div>
    <div>
     <audio id="audio1"></audio>
+    	<source src="cancion/cancion1.mp3">
    </div>
  </div>
 </body>
@@ -78,19 +79,17 @@ window.onload = initialize;
 
 ```
 function playPausa() {
-  if (document.getElementById("audio1")) {
-    if (audioElm.paused) {
-      audioElm.play();
-      playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
-    }
-      else {
-        audioElm.pause();
-        playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
-      }
+  if (audioElm.paused) {
+    audioElm.play();
+    playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
+  }
+  else {
+    audioElm.pause();
+    playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
   }
 }
 ```
-Esta función comprueba si existe un elemento de audio. Si lo hay comprueba si está pausado o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
+Esta función si está pausado el video o no, en caso de que esté pausado, inicia la reproducción y cambia el botón a uno de pausa. Si por el contrario, el audio se está reproduciendo, lo pausa y cambia el botón al de play.
 
 audioElm.paused devuelve true si el audio está pausado y false si no lo está.
 
@@ -269,12 +268,12 @@ function initialize () {
 
   //EventListeners
   ...
-  navbar.addEventListener("change",audioBar,false);
+  navbar.addEventListener("change",audioBar);
   navbar.addEventListener("mousedown", md);
   navbar.addEventListener("mouseup", mu);
 ```
 Necesitaremos 3 EventListeners para que la barra funcione de forma correcta.
-* navbar.addEventListener("change",audioBar,false): cuando la barra de progreso esté cambiando se ejecuta la función audioBAr.
+* navbar.addEventListener("change",audioBar): cuando la barra de progreso esté cambiando se ejecuta la función audioBAr.
 * navbar.addEventListener("mousedown", md): cuando el ratón este clickeado sobre la barra, se ejecuta la función md.
 * navbar.addEventListener("mouseup", mu): cuando el ratón deje de estar clickeado sobre la barra, se ejecutará la función mu.
 
@@ -469,7 +468,7 @@ A continuación creamos un EventListener dentro de la función initialize(), par
 ```
 // EventListeners
 ...
-pantcompl.addEventListener("click",pantallaCompleta,false);
+pantcompl.addEventListener("click",pantallaCompleta);
 ```
 
 Por último creamos la función pantallaCompleta.
