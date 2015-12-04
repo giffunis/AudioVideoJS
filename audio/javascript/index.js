@@ -91,7 +91,25 @@ function volumenSet () {
 function actualizarTiempo() {
   var ne = audioElm.currentTime * (100 / audioElm.duration);
   navbar.value = ne;
+  var minActual = Math.floor(audioElm.currentTime / 60);
+  var secActual = Math.floor(audioElm.currentTime - minActual * 60);
+  var minDuracion = Math.floor(audioElm.duration / 60);
+  var secDuracion = Math.floor(audioElm.duration - minDuracion * 60);
 
+  if (minActual < 10) {
+    minActual = "0" + minActual;
+  }
+  if (secActual < 10) {
+    secActual = "0" + secActual;
+  }
+  if (minDuracion < 10) {
+    minDuracion = "0" + minDuracion;
+  }
+  if (secDuracion < 10) {
+    secDuracion = "0" + secDuracion;
+  }
+  tiempoActual.innerHTML = minActual + ":" + secActual;
+  duracion.innerHTML = minDuracion + ":" + secDuracion;
 }
 
 
