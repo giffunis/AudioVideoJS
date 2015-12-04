@@ -15,6 +15,10 @@ function initialize () {
 
   //EventListeners
   playbutton.addEventListener("click", playPausa);
+  menosvel.addEventListener("click",disminuirVel);
+  masvel.addEventListener("click",aumentarVel);
+  mute.addEventListener("click",mutear);
+  navbar.addEventListener("change",audioBar);
 }
 
 window.onload = initialize;
@@ -35,17 +39,32 @@ function playPausa() {
 }
 
 function aumentarVel() {
+  audioElm.playbackRate += 1;
+  if(audioElm.playbackRate < 1){
 
+  }
+  // falta if<1
 }
 
 
 function disminuirVel() {
-
+  if (audioElm.playbackRate <= 1) {
+    var x = audioElm.playbackRate;
+    audioElm.playbackRate = (x/2);
+  }else {
+    audioElm.playbackRate -= 1;
+  }
 }
 
 
 function mutear (){
-
+  if(audioElm.muted){
+    audioElm.muted = false;
+    mute.style.background = 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png") no-repeat';
+  }else {
+    audioElm.muted = true;
+    mute.style.background = 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png") no-repeat';
+  }
 // 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png") no-repeat';
 
 // 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png") no-repeat';
@@ -54,8 +73,9 @@ function mutear (){
 
 
 function audioBar() {
-
- }
+  var a = audioElm.duration * (navbar.value / 100);
+  audioElm.currentTime = a;
+}
 
 
 function volumen_set () {
