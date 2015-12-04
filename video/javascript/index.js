@@ -24,10 +24,11 @@ function initialize(){
 	navbar.addEventListener("mouseup", mu);
 	mutebtn.addEventListener("click",vidmute);
 	volumenbar.addEventListener("change",volumen_set);
+	pantcompl.addEventListener("click",pantallaCompleta);
 
 }
 
-window.onload = initialize; 
+window.onload = initialize;
 
 function playPause(){
 	if(vid.paused){
@@ -87,7 +88,15 @@ function volumen_set(){
 
 
 function pantallaCompleta(){
-
+	if(vid.requestFullScreen){
+		vid.requestFullScreen();
+	}
+	else if (vid.webkitRequestFullScreen) {
+		vid.webkitRequestFullScreen();
+	}
+	else if (vid.mozRequestFullScreen) {
+		vid.mozRequestFullScreen();
+	}
 }
 
 
