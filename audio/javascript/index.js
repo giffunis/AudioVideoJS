@@ -21,6 +21,8 @@ function initialize () {
   navbar.addEventListener("change",audioBar);
   volumenbar.addEventListener("mousemove", volumenSet);
   audioElm.addEventListener("timeupdate",actualizarTiempo);
+  navbar.addEventListener("mousedown", md);
+  navbar.addEventListener("mouseup", mu);
 }
 
 window.onload = initialize;
@@ -94,10 +96,10 @@ function actualizarTiempo() {
 
 
 function md (){
-
+  audioElm.pause();
 }
 
 
 function mu () {
-
+  audioElm.play();
 }
