@@ -19,6 +19,8 @@ function initialize () {
   masvel.addEventListener("click",aumentarVel);
   mute.addEventListener("click",mutear);
   navbar.addEventListener("change",audioBar);
+  volumenbar.addEventListener("mousemove", volumenSet);
+  audioElm.addEventListener("timeupdate",actualizarTiempo);
 }
 
 window.onload = initialize;
@@ -78,14 +80,15 @@ function audioBar() {
 }
 
 
-function volumen_set () {
-
+function volumenSet () {
+  audioElm.volume = volumenbar.value / 100;
 }
 
 
 
 function actualizarTiempo() {
-
+  var ne = audioElm.currentTime * (100 / audioElm.duration);
+  navbar.value = ne;
 
 }
 
