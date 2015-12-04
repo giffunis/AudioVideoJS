@@ -14,13 +14,20 @@ function initialize () {
   duracion = document.getElementById("duracion");
 
   //EventListeners
-
+  playbutton.addEventListener("click", playPausa);
 }
 
-window.onload = initialize; 
+window.onload = initialize;
 
 function playPausa() {
-  
+  if(audioElm.paused){
+    audioElm.play();
+    playbutton.style.background = 'url("http://mannyzone.com/images/pause.png") no-repeat';
+  }
+  else{
+    audioElm.pause();
+    playbutton.style.background = 'url("http://mannyzone.com/images/play.png") no-repeat';
+  }
 // 'url("http://mannyzone.com/images/pause.png") no-repeat';
 
 // 'url("http://mannyzone.com/images/play.png") no-repeat';
@@ -38,7 +45,7 @@ function disminuirVel() {
 
 
 function mutear (){
-  
+
 // 'url("http://help.motorola.com/hc/apps/connect/10/en-us/images/global/mdpi/mc_sound_on.png") no-repeat';
 
 // 'url("http://www.oakschurch.co.uk/controls%5Ccvol_mute.png") no-repeat';
